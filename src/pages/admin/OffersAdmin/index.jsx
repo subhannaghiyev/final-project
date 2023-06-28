@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "./index.scss";
 
-const Home = () => {
+const OffersAdmin = () => {
   const columns = [
     {
       title: "Image",
@@ -24,6 +24,16 @@ const Home = () => {
       title: "Country",
       dataIndex: "country",
       render: (country) => <div style={{ fontFamily: "chillax-regular" }}>{country}</div>,
+    },
+    {
+      title: "Information",
+      dataIndex: "info",
+      render: (info) => <div style={{ fontFamily: "chillax-regular"}}>{info}</div>,
+    },
+    {
+      title: "Description",
+      dataIndex: "description",
+      render: (description) => <div style={{ fontFamily: "chillax-regular" ,width:200}}>{description}</div>,
     },
     {
       title: "Edit",
@@ -57,13 +67,14 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4040/travels", {
+        const response = await axios.get("http://localhost:4040/offers", {
           params: {
             _page: pagination.current,
             _limit: pagination.pageSize,
           },
         });
         setData(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -180,4 +191,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default OffersAdmin;
