@@ -13,6 +13,7 @@ import LoginAdmin from "../pages/admin/LoginAdmin";
 import HomeAdmin from "../pages/admin/HomeAdmin";
 import Users from "../pages/admin/Users";
 import OffersAdmin from "../pages/admin/OffersAdmin";
+import NewsAdmin from "../pages/admin/NewsAdmin";
 
 export const ROUTER = [
   {
@@ -68,6 +69,10 @@ export const ROUTER = [
       {
         path: "offers",
         element:<OffersAdmin/>
+      },
+      {
+        path: "news",
+        element:<NewsAdmin/>
       },
       {
         path: "users",
