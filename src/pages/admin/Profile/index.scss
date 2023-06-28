@@ -1,0 +1,110 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .user {
+    position: relative;
+    bottom: 800px;
+    left: 350px;
+    padding-right: 100px;
+    width: auto;
+    .p-user {
+        font-size: 28px;
+        color:deeppink;
+        font-family: chillax-regular;
+        margin-bottom: 10px;
+    }
+    .profile-admin {
+        width: 100%;
+      .profile-images {
+        width: 100%;
+        height: 30vh;
+        .profile-img {
+          width: 70%;
+          height: 30vh;
+        }
+      }
+      .profile-text {
+        width: 70%;
+        height: 35vh;
+        background-color: white;
+        .user-display {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding-top: 10px;
+          padding-left: 40px;
+          .user-image {
+            .user-img {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              border: none;
+              background-color: transparent;
+            }
+          }
+          .users-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .users-p {
+              font-size: 18px;
+              font-family: chillax-regular;
+              color:deeppink;
+              font-style: italic;
+            }
+            .users-p-2 {
+              font-size: 18px;
+              font-family: chillax-regular;
+              color: deeppink;
+              font-style: italic;
+            }
+          }
+        }
+        .user-private{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding-top: 60px;
+          .users-info-private{
+            margin-right: 20px;
+            .full{
+              font-size: 18px;
+              font-family: chillax-regular;
+              color: black;
+            }
+            .mobile{
+              font-size: 18px;
+              font-family: chillax-regular;
+              color: black;
+            }
+            .email{
+              font-size: 18px;
+              font-family: chillax-regular;
+              color: black;
+            }
+          }
+          .user-info-private{
+            .username{
+              font-size: 18px;
+              font-family: chillax-regular;
+              color: black;
+            }
+            .birthday{
+              font-size: 18px;
+              font-family: chillax-regular;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

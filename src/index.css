@@ -11,3 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
+  font-family: chillax-regular;
+  src: url("./assets/Chillax_Complete/Fonts/OTF/Chillax-Regular.otf");
+}

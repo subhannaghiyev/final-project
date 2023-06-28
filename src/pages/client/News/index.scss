@@ -1,0 +1,258 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+.background-image-2-news {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/news.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 85vh;
+
+  .text-about {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 320px;
+    left: 150px;
+    .p-about {
+      font-size: 48px;
+      font-weight: 100;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+    .p-about-1 {
+      font-size: 18px;
+      font-weight: 200;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+  }
+
+  .sect-2 {
+    position: absolute;
+    background-image: url("https://preview.colorlib.com/theme/destino/images/find.jpg.webp");
+    width: 88%;
+    height: 35vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 550px;
+    left: 80px;
+    .text-h3 {
+      .h3 {
+        width: 100%;
+        font-size: 30px;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center !important;
+        font-family: chillax-regular;
+        position: absolute;
+        top: 70px;
+        left: 10px;
+      }
+    }
+    .input {
+      position: absolute;
+      top: 150px;
+      color: #ffffff;
+      display: flex;
+      align-items: flex-start !important;
+      text-align: center;
+      justify-content: flex-start;
+      gap: 10px;
+
+      .inp {
+        width: 300px;
+        height: 56px;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 52px;
+        color: #ffffff;
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        font-style: italic;
+      }
+      .inp-select {
+        width: 344px;
+        height: 60px;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 52px;
+        color: rgba(255, 255, 255, 0.5);
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        font-style: italic;
+        .inp-color {
+          border: solid 2px rgba(255, 255, 255, 0.5);
+          background: transparent;
+        }
+      }
+      .inp-price {
+        width: 100px;
+        height: 60px;
+        background-position: center right;
+        background-repeat: no-repeat;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: italic;
+        color: #939393 !important;
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 52px;
+        text-transform: none;
+      }
+      .btn {
+        display: inline-block;
+        width: 161px;
+        height: 60px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 52px;
+        padding-left: 46px;
+        padding-right: 46px;
+        background: #fe435b !important;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin-top: 27px;
+      }
+      .btn:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+}
+
+.sect-2-news {
+  margin-top: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: justify;
+  .text-news {
+    .h4 {
+      font-weight: 300;
+      color: #131a2f;
+      font-family: chillax-regular;
+      font-size: 40px;
+      margin-bottom: 0.5rem;
+    }
+    .p-news {
+      display: inline-block;
+      position: relative;
+      font-size: 12px;
+      font-weight: 600;
+      color: #7d8293;
+      text-transform: uppercase;
+      padding-right: 26px;
+      letter-spacing: 0.1cm;
+    }
+  }
+  .input-news {
+    .inp-news {
+      height: 47px;
+      width: 250px;
+      background: transparent;
+      padding-left: 20px;
+      border: solid 2px #dbdbdb;
+    }
+    .inp-news:hover {
+      border: solid 2px rgba(254, 60, 82, 0.8);
+    }
+  }
+}
+.flex-news {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 50px;
+  .images-news {
+    .news-images {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-left: 155px;
+      padding-top: 50px;
+      .img-news {
+        width: 780px;
+        height: 400px;
+      }
+      .news-p {
+        width: 800px;
+        margin-bottom: 0;
+        font-family: chillax-regular;
+        font-size: 15px;
+        line-height: 2;
+        font-weight: 400;
+        color: #7d8293;
+        -webkit-font-smoothing: antialiased;
+        text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+      }
+    }
+    .text-news-flex {
+      padding-top: 50px;
+      padding-left: 170px;
+      .text-news {
+        .h4 {
+          font-weight: 300;
+          color: #131a2f;
+          font-family: chillax-regular;
+          font-size: 40px;
+          margin-bottom: 0.5rem;
+        }
+        .p-news {
+          display: inline-block;
+          position: relative;
+          font-size: 12px;
+          font-weight: 600;
+          color: #7d8293;
+          text-transform: uppercase;
+          padding-right: 26px;
+          letter-spacing: 0.1cm;
+        }
+      }
+    }
+  }
+  .right-images {
+    .right-img {
+      width: 210px;
+      height: 68px;
+    }
+    .text-news {
+      .h4 {
+        font-weight: 400;
+        color: #131a2f;
+        font-family: chillax-regular;
+        font-size: 20px;
+        margin-bottom: 0.5rem;
+      }
+      .p-news {
+        display: inline-block;
+        position: relative;
+        font-size: 9px;
+        font-weight: 500;
+        color: #7d8293;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

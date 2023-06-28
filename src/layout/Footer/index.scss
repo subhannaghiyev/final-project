@@ -1,0 +1,317 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+.footer {
+    width: 100%;
+    background: #080d1d;
+    padding: 110px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  
+    .logo-1 {
+      position: relative;
+      padding-left: 50px;
+      .img-footer {
+        position: absolute;
+        width: 50px;
+        height: 41px;
+        top: -35px;
+        left: 20px;
+      }
+  
+      .text-footer {
+        .h3-footer {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 0.75;
+          color: #ffffff;
+          text-transform: uppercase;
+          font-family: chillax-regular;
+        }
+  
+        .p-footer {
+          font-size: 10px;
+          font-weight: 500;
+          color: #929292;
+          letter-spacing: 0.13em;
+          margin-top: 2px;
+          padding-left: 2px;
+          text-transform: uppercase;
+          font-family: chillax-regular;
+        }
+      }
+  
+      .foot-p {
+        width: 400px;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 2.5;
+        color: #7d8293;
+        margin-top: 35px;
+      }
+  
+      .foot-p-2 {
+        width: 300px;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 2.5;
+        color: #7d8293;
+        margin-top: 39px;
+      }
+    }
+  
+    .foot-sect-2 {
+      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      
+      .h3-foot {
+        font-size: 24px;
+        font-weight: 300;
+        color: #ffffff;
+        margin-bottom: 20px;
+        margin-right: 92px;
+        font-family: chillax-regular;
+      }
+  
+      .foot-sect-2-2 {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+  
+        .image-foot {
+          .img-foot {
+            margin-top: 20px;
+            width: 78px;
+            height: 78px;
+          }
+        }
+      }
+  
+      .foot-text {
+        .p-text-foot {
+          font-size: 18px;
+          font-weight: 300;
+          color: #7d8293;
+        }
+  
+        .p-text-footer {
+          font-size: 12px;
+          font-weight: 300;
+          color: #fe3c52;
+          margin-top: 10px;
+        }
+      }
+    }
+  
+    .tags {
+      margin-left: 30px;
+      margin-bottom: 80px;
+      .h3-foot {
+        font-size: 24px;
+        font-weight: 300;
+        color: #ffffff;
+        margin-bottom: 20px;
+        margin-right: 285px;
+        font-family: chillax-regular;
+      }
+  
+      .tags-display {
+        display: flex;
+        flex-wrap: wrap;
+
+        .display-tags {
+          .div-tags-1 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-1:hover{
+            background :rgb(253, 23, 50)
+          }
+          .div-tags-2 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-2:hover{
+            background :rgb(253, 23, 50)
+          }
+          .div-tags-3 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-3:hover{
+            background :rgb(253, 23, 50)
+          }
+        }
+        .display-tags-4{
+          .div-tags-4 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-4:hover{
+            background :rgb(253, 23, 50)
+          }
+          .div-tags-5 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-5:hover{
+            background :rgb(253, 23, 50)
+          }
+          .div-tags-6 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-6:hover{
+            background :rgb(253, 23, 50)
+          }
+        }
+        .display-tags-7{
+          .div-tags-7 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-7:hover{
+            background :rgb(253, 23, 50)
+          }
+          .div-tags-8 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-8:hover{
+            background :rgb(253, 23, 50)
+          }
+          .div-tags-9 {
+            width: 50px;
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            padding-left: 27px;
+            padding-right: 27px;
+            line-height: 36px;
+            color: #ffffff;
+            height: 36px;
+            background: rgba(254, 60, 82, 1);
+            margin-right: 6px;
+            margin-bottom: 6px;
+            .link{
+              color: white;
+            }
+          }
+          .div-tags-9:hover{
+            background :rgb(253, 23, 50)
+          }
+        }
+      }
+    }
+  }
+  

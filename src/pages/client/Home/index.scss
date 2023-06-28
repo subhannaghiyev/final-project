@@ -1,0 +1,401 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+.div {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/home.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  font-family: chillax-regular;
+
+  .discover {
+    position: relative;
+    text-align: center;
+    top: 350px;
+
+    .text-p {
+      text-transform: uppercase;
+      font-size: 215px;
+      font-weight: 900;
+      color: #fdaa27;
+      opacity: 0.34;
+      text-transform: uppercase;
+      line-height: 0.75;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  .discover-2 {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    .p-text {
+      width: 805px;
+      height: 108px;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      font-size: 65px;
+      font-weight: 400;
+      color: #ffffff;
+      text-shadow: 0px 11px 51px rgba(0, 0, 0, 0.35);
+    }
+  }
+}
+
+.sect-2 {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/find.jpg.webp");
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .text-h3 {
+    .h3 {
+      width: 100%;
+      font-size: 30px;
+      font-weight: 300;
+      color: #ffffff;
+      text-align: center !important;
+      font-family: chillax-regular;
+      position: absolute;
+      top: 70px;
+      left: 10px;
+    }
+  }
+  .input {
+    position: absolute;
+    top: 150px;
+    color: #ffffff;
+    display: flex;
+    align-items: flex-start !important;
+    text-align: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    .inp {
+      width: 300px;
+      height: 56px;
+      border: none;
+      outline: none;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 52px;
+      color: #ffffff;
+      border: solid 2px rgba(255, 255, 255, 0.5);
+      background: transparent;
+      font-style: italic;
+    }
+    .inp-select{
+      width: 344px;
+      height: 60px;
+      border: none;
+      outline: none;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 52px;
+      color: rgba(255, 255, 255, 0.5);
+      border: solid 2px rgba(255, 255, 255, 0.5);
+      background: transparent;
+      font-style: italic;
+    .inp-color {
+      border: solid 2px rgba(255, 255, 255, 0.5);
+      background: transparent;
+    }
+  }
+    .inp-price {
+      width: 100px;
+      height: 60px;
+      background-position: center right;
+      background-repeat: no-repeat;
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: italic;
+      color: #939393 !important;
+      border: solid 2px rgba(255, 255, 255, 0.5);
+      background: transparent;
+      outline: none;
+      padding-left: 20px;
+      padding-right: 20px;
+      line-height: 52px;
+      text-transform: none;
+    }
+    .btn {
+      display: inline-block;
+      width: 161px;
+      height: 60px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 52px;
+      padding-left: 46px;
+      padding-right: 46px;
+      background: #fe435b !important;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-top: 27px;
+    }
+    .btn:hover {
+      filter: brightness(0.9);
+    }
+  }
+}
+
+.sect-3-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+  margin-top: 50px;
+
+  .h4-2 {
+    font-weight: 300;
+    color: #131a2f;
+    font-family: chillax-regular;
+    font-size: 40px;
+    margin-bottom: 0.5rem;
+  }
+  .p-sect-3-2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #7d8293;
+    text-transform: uppercase;
+    margin-top: 19px;
+  }
+}
+.images {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 100px;
+  .image-data-1{
+    position: relative;
+    .image-1 {
+      .image-data {
+        width: 260px;
+        height: 347px;
+      }
+    }
+    .text-1 {
+      position: absolute;
+      left: 30px;
+      bottom: 40px;
+  
+      .p-dollar {
+        font-size: 14px;
+        font-weight: 400;
+        color: #ffffff;
+        font-family: chillax-regular;
+      }
+      .p-country {
+        font-size: 20px;
+        font-weight: 400;
+        color: #ffffff;
+        margin-top: 2px;
+        font-family: chillax-regular;
+      }
+    }
+  }
+}
+
+.sect-4 {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/last.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 587px;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  position: relative;
+
+  .imgs{
+    position: absolute;
+    left: 80px;
+    top: -15px;
+    .img{
+      width: 156px;
+      height: 151px;
+    }
+  }
+
+  .back-image {
+    background: rgba(254, 64, 91, 0.79);
+    border: none;
+    outline: none;
+    width: 520px;
+    height: 430px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    .maldive {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: left;
+      color: white;
+      font-family: chillax-regular;
+    }
+    .degree {
+      font-size: 175px;
+      font-weight: 100;
+      line-height: 0.75;
+      margin-top: 14px;
+      text-align: center;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+    .last-minute {
+      font-size: 40px;
+      font-weight: 300;
+      text-align: left;
+      margin-top: 7px;
+      line-height: 1.1;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+    .btn-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+      .text-sect-4 {
+        width: 360px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 2.14;
+        margin-top: 15px;
+        color: #ffffff;
+        text-align: center !important;
+        font-family: chillax-regular;
+      }
+      .btn-2 {
+        margin-bottom: 20px;
+        width: 150px;
+        display: block;
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: 500;
+        line-height: 56px;
+        background: #131a2f;
+        border: #131a2f;
+        font-family: chillax-regular;
+      }
+    }
+  }
+}
+
+.sect-5 {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/video.jpg.webp");
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(1.2);
+
+  .video-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 250px;
+    gap: 10px;
+
+    .video-p {
+      font-size: 30px;
+      font-weight: 300;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+    .video-p-1 {
+      font-size: 14px;
+      font-weight: 300;
+      color: #ffffff;
+      margin-top: 3px;
+      font-family: chillax-regular;
+    }
+  }
+}
+.sect-3-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+
+  .h4-home {
+    font-weight: 300;
+    color: #131a2f;
+    font-family: chillax-regular;
+    font-size: 40px;
+    margin-bottom: 0.5rem;
+  }
+  .p-sect-3-home {
+    font-size: 16px;
+    font-weight: 400;
+    color: #7d8293;
+    text-transform: uppercase;
+    margin-top: 19px;
+  }
+}
+.sect-6-home {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 50px;
+
+  .div-images {
+    position: relative;
+    // width: calc(25% - 40px);
+     /* Adjust the width as needed */
+
+    margin: 20px;
+
+    .imagess {
+      width: 250px;
+      height: 250px;
+
+      .image-size {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .text-dollar {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+
+      .text-p {
+        font-size: 14px;
+        font-weight: 400;
+        color: #ffffff;
+        font-family: chillax-regular;
+      }
+      .text-p-1 {
+        font-size: 20px;
+        font-weight: 400;
+        color: #ffffff;
+        font-family: chillax-regular;
+      }
+    }
+  }
+}
+

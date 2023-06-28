@@ -1,0 +1,79 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.login {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/home.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modalka {
+    width: 80%;
+    height: 80vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom-right-radius: 35px;
+
+    .information {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: justify;
+      padding-left: 40px;
+
+      .destino {
+        font-family: chillax-regular;
+        color :deeppink;
+        font-size: 20px;
+      }
+
+      .create {
+        font-size: 30px;
+        font-family: chillax-regular;
+        font-weight: 800;
+        color :deeppink;
+      }
+
+      .text-field {
+        width: 300px;
+        font-family: chillax-regular;
+      }
+
+      .btn {
+        margin-top: 20px;
+        width: 200px;
+        padding: 8px 34px;
+        background-color: deeppink;
+        color: white;;
+        border-radius: 7px;
+        font-family: chillax-regular;
+        border: none;
+        cursor: pointer;
+      }
+
+      .already {
+        font-family: chillax-regular;
+      }
+    }
+  }
+  
+  .slider-image {
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}

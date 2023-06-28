@@ -1,0 +1,121 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .login-admin {
+    width: 100%;
+    height: 100vh;
+    background: #833ab4; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #fcb045,
+      #fd1d1d,
+      #833ab4
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #fcb045,
+      #fd1d1d,
+      #833ab4
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    position: relative;
+    .login-destino {
+      font-size: 30px;
+      font-family: chillax-regular;
+      color: #fcb045;
+      color: white;
+      position: absolute;
+      top: 40px;
+      left: 520px;
+    }
+    .login-admin-info {
+      position: absolute;
+      width: 80%;
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      top: 120px;
+      left: 120px;
+
+      .login-admin-image {
+        .login-admin-img {
+          width: 400px;
+          height: 50vh;
+          border: none;
+          border-radius: 15px;
+          filter: brightness(1.2);
+        }
+      }
+      .login-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        position: relative;
+
+        .login-admin-div-position {
+          background-color: #fcb045;
+          width: 40px;
+          padding-top: 2px;
+          position: absolute;
+          top: -65px;
+          left: 8px;
+        }
+        .login-p {
+          font-family: chillax-regular;
+          font-size: 20px;
+          position: absolute;
+          top: -50px;
+          left: 8px;
+          color: white;
+        }
+        .login-form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .login-inp {
+                width: 300px;
+                padding: 12px 28px;
+                border-radius: 20px;
+                border: none;
+                font-family: chillax-regular;
+              }
+              .login-btn {
+                width: 350px;
+                padding: 12px 28px;
+                border-radius: 20px;
+                border: none;
+                font-family: chillax-regular;
+                background-color: #fcb045;
+                color: white;
+                cursor: pointer;
+              }
+        }
+        .forgot-login {
+          font-size: 10px;
+          font-family: chillax-regular;
+          color: rgb(219, 217, 217);
+        }
+        .get-login {
+          font-size: 10px;
+          font-family: chillax-regular;
+          color: #fcb045;
+        }
+      }
+    }
+  }
+}

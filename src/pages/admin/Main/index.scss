@@ -1,0 +1,112 @@
+// @font-face {
+//   font-family: chillax-regular;
+//   src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+// }
+
+// * {
+//   margin: 0;
+//   padding: 0;
+//   text-decoration: none;
+//   list-style: none;
+
+//   .admin-header {
+//     width: 10%;
+//     height: 60vh;
+//     padding-top: 350px;
+//     padding-left: 100px;
+//     margin-right: 50px;
+//     background-color: white;
+//     padding-bottom: 100px;
+//     position: relative;
+//     bottom: 220px;
+//     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+//     .logo {
+//       position: relative;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: flex-start;
+
+//       .logo-admin {
+//         .admin-image {
+//           width: 50px;
+//           height: 41px;
+//           position: absolute;
+//           top: -33px;
+//           left: -29px;
+//         }
+
+//         .destino-admin {
+//           width: 112px;
+//           height: 18px;
+//           font-size: 24px;
+//           font-weight: 500;
+//           line-height: 0.75;
+//           color: deeppink;
+//           text-transform: uppercase;
+//           font-family: chillax-regular;
+//         }
+
+//         .travel-admin {
+//           width: 110px;
+//           height: 15px;
+//           font-size: 10px;
+//           font-weight: 500;
+//           color: #929292;
+//           letter-spacing: 0.13em;
+//           margin-top: 2px;
+//           padding-left: 2px;
+//           text-transform: uppercase;
+//           font-family: chillax-regular;
+//         }
+
+//         .image-travel {
+//           position: absolute;
+//           display: flex;
+//           margin-right: 100px;
+//           gap: 20px;
+//           right: -80px;
+//           margin-top: 50px;
+
+//           .img-travel {
+//             width: 80px;
+//             height: 80px;
+//             border-radius: 50%;
+//           }
+
+//           .admin-travel {
+//             color: linear-gradient(
+//               90deg,
+//               rgb(133, 27, 172) 60%,
+//               rgba(250, 0, 141, 1) 83%,
+//               rgba(152, 22, 141, 1) 100%,
+//               rgba(0, 212, 255, 1) 100%
+//             );
+//             color: deeppink;
+//             font-family: chillax-regular;
+//             font-size: 20px;
+//             margin-top: 10px;
+//           }
+//         }
+
+//         .info-admin {
+//           display: flex;
+//           flex-direction: column;
+//           gap: 20px;
+//           padding-top: 200px;
+//           .image-display-admin {
+//             .disp-img {
+//               display: flex;
+//             }
+
+//             .p-admin {
+//               font-size: 18px;
+//               font-family: chillax-regular;
+//               color: deeppink;
+//               font-style: italic;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

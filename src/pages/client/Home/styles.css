@@ -1,0 +1,60 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+.swiper {
+  width: 100%;
+  height: 200vh;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slides {
+  position: relative;
+}
+
+.swiper-slide .img {
+  border-top-left-radius: 0px;
+  display: block;
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
+}
+.slide-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.p-slide {
+  font-size: 24px;
+  font-weight: 300;
+  color: #ffffff;
+  font-family: chillax-regular;
+}
+.p-slides {
+  font-size: 30px;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center !important;
+  font-family: chillax-regular;
+}
+.swiper-wrapper{
+  margin-top: 100px;
+  height: 90%;
+}
+.mySwiper{
+  height: 110vh;
+}
+
+.images-slider:hover{
+  background: rgba(254, 60, 82, 0.8);
+}

@@ -1,0 +1,264 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+.background-image-2-contact {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/news.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 85vh;
+
+  .text-about {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 320px;
+    left: 150px;
+    .p-about {
+      font-size: 48px;
+      font-weight: 100;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+    .p-about-1 {
+      font-size: 18px;
+      font-weight: 200;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+  }
+
+  .sect-2 {
+    position: absolute;
+    background-image: url("https://preview.colorlib.com/theme/destino/images/find.jpg.webp");
+    width: 88%;
+    height: 35vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 550px;
+    left: 80px;
+    .text-h3 {
+      .h3 {
+        width: 100%;
+        font-size: 30px;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center !important;
+        font-family: chillax-regular;
+        position: absolute;
+        top: 70px;
+        left: 10px;
+      }
+    }
+    .input {
+      position: absolute;
+      top: 150px;
+      color: #ffffff;
+      display: flex;
+      align-items: flex-start !important;
+      text-align: center;
+      justify-content: flex-start;
+      gap: 10px;
+
+      .inp {
+        width: 300px;
+        height: 56px;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 52px;
+        color: #ffffff;
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        font-style: italic;
+      }
+      .inp-select{
+        width: 344px;
+        height: 60px;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 52px;
+        color: rgba(255, 255, 255, 0.5);
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        font-style: italic;
+      .inp-color {
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+      }
+    }
+      .inp-price {
+        width: 100px;
+        height: 60px;
+        background-position: center right;
+        background-repeat: no-repeat;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: italic;
+        color: #939393 !important;
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 52px;
+        text-transform: none;
+      }
+      .btn {
+        display: inline-block;
+        width: 161px;
+        height: 60px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 52px;
+        padding-left: 46px;
+        padding-right: 46px;
+        background: #fe435b !important;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin-top: 27px;
+      }
+      .btn:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+}
+
+.sect-3-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 100px;
+  padding-left: 150px;
+  padding-top: 150px;
+  .h4 {
+    font-weight: 300;
+    color: #131a2f;
+    font-family: chillax-regular;
+    font-size: 40px;
+    margin-bottom: 0.5rem;
+  }
+  .p-sect-3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #7d8293;
+    text-transform: uppercase;
+    margin-top: 19px;
+  }
+}
+
+.sect-4-contact-display {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  .sect-4-contact-column {
+    padding-left: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 40px;
+    .contact-p {
+      width: 405px;
+      margin-bottom: 0px;
+      font-family: chillax-regular;
+      font-size: 15px;
+      line-height: 2;
+      font-weight: 400;
+      color: #7d8293;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sect-4-contact-2 {
+      display: flex;
+      gap: 20px;
+      .i-contact {
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        text-align: center;
+        background: #fe3c52;
+        font-style: italic;
+      }
+      .p-text {
+        .p-word {
+          font-size: 14px;
+          color: #131a2f;
+          font-weight: 500;
+          margin-bottom: 18px;
+          font-family: chillax-regular;
+        }
+      }
+      .contact-icons{
+        display: flex;
+        gap: 20px;
+        padding-top: 50px;
+      }
+    }
+  }
+  .contact-input {
+    padding-top: 92px;
+    .contact-inp {
+      width: 100%;
+      height: 41px;
+      border: solid 2px #dbdbdb;
+      padding-left: 20px;
+      margin-bottom: 19px;
+      outline: none;
+      font-family: chillax-regular;
+    }
+    .contact-inp-2 {
+      width: 100%;
+      height: 200px;
+      border: solid 2px #dbdbdb;
+      outline: none;
+      padding-top: 13px;
+      padding-left: 20px;
+      font-family: chillax-regular;
+    }
+    .div-button{
+        margin-left: 200px;
+        .btn-contact {
+            width: 161px;
+            height: 56px;
+            background: rgba(254, 60, 82, 1);
+            border: none;
+            outline: none;
+            float: right;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: chillax-regular;
+          }
+    }
+  }
+}
+.map{
+    padding-top: 100px;
+    padding-left: 145px;
+    width: 78%;
+    filter: brightness(0.8);
+}

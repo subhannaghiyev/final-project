@@ -1,0 +1,95 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+
+  .login-background {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(250, 0, 141, 1) 83%,
+      rgba(152, 22, 141, 1) 100%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    height: 100vh;
+
+    .login-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 200px;
+      .images-login {
+        width: 35%;
+        height: 60vh;
+        .img-login {
+          width: 100%;
+          height: 60vh;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+      }
+      .login-1 {
+        background-color: rgb(23, 18, 18);
+        width: 25%;
+        height: 51.8vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-top: 70px;
+        font-family: chillax-regular;
+        color: white;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        .destino-login {
+          color: white;
+          font-size: 30px;
+        }
+
+        .icon-login {
+          display: flex;
+          gap: 10px;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            .login-text {
+                width: 250px;
+                height: 45px;
+                background-color: black;
+                border: none;
+                color: white;
+                padding-left: 10px;
+                &::placeholder{
+                  color: white;
+                }
+                outline: none;
+              }
+              .forgot {
+                font-size: 10px;
+                margin-left: 130px;
+              }
+              .btn-login {
+                width: 200px;
+                padding: 10px 34px;
+                border-radius: 10px;
+                border: none;
+                background-color: deeppink;
+                color: white;
+                font-family: chillax-regular;
+                cursor: pointer;
+              }
+        }
+      }
+    }
+  }
+}

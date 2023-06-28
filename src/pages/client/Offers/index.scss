@@ -1,0 +1,284 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+.background-image-2 {
+  background-image: url("https://preview.colorlib.com/theme/destino/images/offers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 85vh;
+  // position: relative;
+
+  .text-about {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 320px;
+    left: 150px;
+    .p-about {
+      font-size: 48px;
+      font-weight: 100;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+    .p-about-1 {
+      font-size: 18px;
+      font-weight: 200;
+      color: #ffffff;
+      font-family: chillax-regular;
+    }
+  }
+
+  .sect-2 {
+    position: absolute;
+    background-image: url("https://preview.colorlib.com/theme/destino/images/find.jpg.webp");
+    width: 88%;
+    height: 35vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 550px;
+    left: 80px;
+    .text-h3 {
+      .h3 {
+        width: 100%;
+        font-size: 30px;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center !important;
+        font-family: chillax-regular;
+        position: absolute;
+        top: 70px;
+        left: 10px;
+      }
+    }
+    .input {
+      position: absolute;
+      top: 150px;
+      color: #ffffff;
+      display: flex;
+      align-items: flex-start !important;
+      text-align: center;
+      justify-content: flex-start;
+      gap: 10px;
+
+      .inp {
+        width: 300px;
+        height: 56px;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 52px;
+        color: #ffffff;
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        font-style: italic;
+      }
+      .inp-select{
+        width: 344px;
+        height: 60px;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 52px;
+        color: rgba(255, 255, 255, 0.5);
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        font-style: italic;
+      .inp-color {
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+      }
+    }
+      .inp-price {
+        width: 100px;
+        height: 60px;
+        background-position: center right;
+        background-repeat: no-repeat;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: italic;
+        color: #939393 !important;
+        border: solid 2px rgba(255, 255, 255, 0.5);
+        background: transparent;
+        outline: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 52px;
+        text-transform: none;
+      }
+      .btn {
+        display: inline-block;
+        width: 161px;
+        height: 60px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 52px;
+        padding-left: 46px;
+        padding-right: 46px;
+        background: #fe435b !important;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin-top: 27px;
+      }
+      .btn:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+}
+
+.sect-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 200px;
+
+  .h4 {
+    font-weight: 300;
+    color: #131a2f;
+    font-family: chillax-regular;
+    font-size: 40px;
+    margin-bottom: 0.5rem;
+  }
+  .p-sect-3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #7d8293;
+    text-transform: uppercase;
+    margin-top: 19px;
+  }
+}
+.offers-display {
+  // background-color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  .select-option {
+    padding-top: 70px;
+    .select {
+      display: inline-block;
+      position: relative;
+      width: 132px;
+      height: 36px;
+      line-height: 32px;
+      cursor: pointer;
+      border: solid 2px #dbdbdb;
+      padding-left: 15px;
+      padding-right: 7px;
+      margin-right: 16px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #131a2f;
+      margin-bottom: 10px;
+    }
+  }
+  .offers-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 58px;
+    .pp {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #9195a3;
+      margin-right: 30px;
+      line-height: 36px;
+    }
+    .fa-icon {
+      font-size: 16px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .fa-icon:hover {
+      color: red;
+    }
+  }
+}
+.sect-offers-column {
+  .sect-offers {
+    display: flex;
+    gap: 40px;
+    padding-top: 70px;
+    padding-left: 90px;
+    .images-offers {
+      .img {
+        width: 300px;
+        height: 400px;
+      }
+    }
+    .offers-column {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      text-align: justify;
+      gap: 10px;
+      font-family: chillax-regular;
+      .dollar {
+        font-size: 14px;
+        font-weight: 500;
+        color: #131a2f;
+        font-family: chillax-regular;
+      }
+      .country {
+        font-size: 20px;
+        font-weight: 500;
+        color: #131a2f;
+        margin-top: 1px;
+        font-family: chillax-regular;
+      }
+      .count {
+        display: inline-block;
+        font-size: 12px;
+        color: #878c9b;
+        font-family: chillax-regular;
+      }
+      .stars {
+        display: flex;
+        gap: 5px;
+        .icon-star {
+          font-size: 20px;
+          color: #fa9e1b;
+        }
+      }
+      .offers-text {
+        width: 720px;
+        color: #7d8293;
+        font-size: 15px;
+        line-height: 2;
+        margin-top: 11px;
+        font-family: chillax-regular;
+      }
+      .btn-offers {
+        width: 60px;
+        border: white;
+        font-size: 12px;
+        color: #131a2f;
+        cursor: pointer;
+        margin-top: 50px;
+        transition: all 0.4s ease;
+      }
+      .btn-offers:hover {
+        color: rgba(254, 60, 82, 0.8);
+      }
+    }
+  }
+}
