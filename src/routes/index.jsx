@@ -15,6 +15,7 @@ import Users from "../pages/admin/Users";
 import OffersAdmin from "../pages/admin/OffersAdmin";
 import NewsAdmin from "../pages/admin/NewsAdmin";
 import NotFound from "../pages/client/Notfound";
+import HomeSlider from "../pages/admin/HomeSlider";
 
 export const ROUTER = [
   {
@@ -78,6 +79,10 @@ export const ROUTER = [
       {
         path: "news",
         element:<NewsAdmin/>
+      },
+      {
+        path: "home-slider",
+        element: <HomeSlider />,
       },
       {
         path: "users",
