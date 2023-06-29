@@ -16,6 +16,7 @@ import OffersAdmin from "../pages/admin/OffersAdmin";
 import NewsAdmin from "../pages/admin/NewsAdmin";
 import NotFound from "../pages/client/Notfound";
 import HomeSlider from "../pages/admin/HomeSlider";
+import Meassage from "../pages/admin/Message";
 
 export const ROUTER = [
   {
@@ -87,6 +88,10 @@ export const ROUTER = [
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "message",
+        element: <Meassage />,
       },
       {
         path: "loginAdmin",

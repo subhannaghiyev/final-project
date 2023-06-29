@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import { AiOutlineGooglePlus, AiOutlineTwitter } from "react-icons/ai";
 import { FaPinterest, FaFacebookF } from "react-icons/fa";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Contact = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Verileri admin/message bölümüne gönder
+    try {
+      await axios.post('http://localhost:4040/admin', {
+        name,
+        email,
+        subject,
+        message
+      });
+      // Başarılı gönderim mesajı veya yönlendirme yapılabilir
+      toast.success("Message Sent Successfully!");
+    } catch (error) {
+      console.error(error);
+      // Hata mesajı gösterilebilir
+    }
+  };
   return (
     <>
       <div className="background-image-2-contact">
@@ -99,40 +125,44 @@ const Contact = () => {
           </div>
         </div>
         <div className="contact-input">
-          <div>
-            <input
-              className="contact-inp"
-              type="text"
-              name=""
-              id=""
-              placeholder="Name"
-            />
-            <input
-              className="contact-inp"
-              type="email"
-              name=""
-              id=""
-              placeholder="E-mail"
-            />
-            <input
-              className="contact-inp"
-              type="text"
-              name=""
-              id=""
-              placeholder="Subject"
-            />
-            <input
-              className="contact-inp-2"
-              type="text"
-              name=""
-              id=""
-              placeholder="Message"
-            />
-          </div>
-          <div className="div-button">
-            <button className="btn-contact">Send</button>
-          </div>
-        </div>
+      <div>
+        <input
+          className="contact-inp"
+          type="text"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+        />
+        <input
+          className="contact-inp"
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="E-mail"
+        />
+        <input
+          className="contact-inp"
+          type="text"
+          name="subject"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+          placeholder="Subject"
+        />
+        <input
+          className="contact-inp-2"
+          type="text"
+          name="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Message"
+        />
+      </div>
+      <div className="div-button">
+        <button className="btn-contact" onClick={handleSubmit}>Send</button>
+      </div>
+    </div>
       </div>
 
       <iframe
@@ -164,6 +194,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
