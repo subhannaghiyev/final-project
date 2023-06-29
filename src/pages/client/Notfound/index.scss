@@ -1,0 +1,98 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .notfound-back {
+    background-image: url("https://preview.colorlib.com/theme/destino/images/home.jpg");
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .notfound {
+    color: white;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 47%,
+      rgba(158, 50, 111, 1) 47%,
+      rgba(171, 44, 44, 1) 47%,
+      rgba(255, 7, 7, 1) 100%,
+      rgba(0, 212, 255, 1) 100%,
+      rgba(0, 0, 0, 1) 2260%
+    );
+    font-size: 100px;
+    font-weight: bold;
+    animation: fade-in 1s ease-in-out;
+    animation-delay: 1s;
+    font-family: chillax-regular;
+  }
+
+  .div-notfound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    animation: fade-in 1s ease-in-out;
+    animation-delay: 2s;
+  }
+
+  .p-notfound {
+    font-size: 48px;
+    font-weight: bold;
+    animation: fade-in 1s ease-in-out;
+    animation-delay: 3s;
+    font-family: chillax-regular;
+    color: red;
+  }
+
+  .page-p {
+    color: red;
+    font-size: 24px;
+    margin-top: 10px;
+    animation: fade-in 1s ease-in-out;
+    animation-delay: 4s;
+    font-family: chillax-regular;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+// .fade-enter {
+//     opacity: 0;
+//     transform: translateY(-50%);
+//   }
+
+//   .fade-enter-active {
+//     opacity: 1;
+//     transform: translateY(0);
+//     transition: opacity 500ms, transform 500ms;
+//   }
+
+//   .fade-exit {
+//     opacity: 1;
+//   }
+
+//   .fade-exit-active {
+//     opacity: 0;
+//     transform: translateY(-50%);
+//     transition: opacity 500ms, transform 500ms;
+//   }

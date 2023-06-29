@@ -14,6 +14,7 @@ import HomeAdmin from "../pages/admin/HomeAdmin";
 import Users from "../pages/admin/Users";
 import OffersAdmin from "../pages/admin/OffersAdmin";
 import NewsAdmin from "../pages/admin/NewsAdmin";
+import NotFound from "../pages/client/Notfound";
 
 export const ROUTER = [
   {
@@ -31,6 +32,10 @@ export const ROUTER = [
       {
         path: "/news",
         element: <News />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
       {
         path: "/offers",
