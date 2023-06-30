@@ -129,4 +129,13 @@
     font-family: chillax-regular;
     color: white;
   }
+  .payment{
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    .payment-icon{
+        font-size: 25px;
+    }
+  }
 }

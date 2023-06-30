@@ -1,10 +1,9 @@
 import "./index.scss";
 import { AiFillStar } from "react-icons/ai";
-import { AiTwotoneHeart } from "react-icons/ai";
+import { FaCcAmazonPay } from "react-icons/fa";
 import { removeFromFav } from "../../../redux/slice/FavSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { Button } from "antd";
 const Wishlist = () => {
   const data = useSelector((state) => state.addToFav.value);
@@ -47,7 +46,7 @@ const Wishlist = () => {
 
         <div className="total-price">
             <h2 className="total">Total Price : {totalPrice}</h2>
-            <Button>Payment</Button>
+            <Button type="primary" className="payment">Payment  <FaCcAmazonPay className="payment-icon"/></Button>
         </div>
       </div>
     </>
