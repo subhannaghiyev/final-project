@@ -1,8 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./index.scss";
-import { AiOutlineSearch } from "react-icons/ai";
+import { BsCart4 } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
+  const data = useSelector((state) => state.addToFav.value);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <>
       <div className="head">
@@ -37,9 +41,12 @@ const Header = () => {
           </ul>
         </nav>
         <div>
-          <button className="header-btn">
-            <AiOutlineSearch style={{fontSize : "40px" , color : "white"}}/>
-          </button>
+          <div className="icon-button">
+            <button className="header-btn">
+              <BsCart4  onClick={()=> navigate("/wishlist")} style={{ fontSize: "40px", color: "white" }} />
+            </button>
+            <div className="wishlist-count">{data.length}</div>
+          </div>
         </div>
       </div>
     </>

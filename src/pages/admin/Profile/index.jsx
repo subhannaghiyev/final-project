@@ -3,13 +3,14 @@ import "./index.scss";
 const Profile = () => {
   return (
     <>
+      <div className="main">
       <div className="user">
         <p className="p-user">Profile</p>
         <div className="profile-admin">
           <div className="profile-images">
             <img
               className="profile-img"
-              src="https://www.diabetes.co.uk/wp-content/uploads/2019/01/Untitled-design138-1000x600.jpg"
+              src="https://t3.ftcdn.net/jpg/03/04/76/60/360_F_304766094_oGfiNaNzXOXli1xFLLeqYgZjBABsUB29.jpg"
               alt=""
             />
           </div>
@@ -39,6 +40,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

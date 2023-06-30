@@ -220,11 +220,41 @@
     padding-top: 70px;
     padding-left: 90px;
     .images-offers {
+      position: relative;
       .img {
         width: 300px;
         height: 400px;
       }
+    .icons-data{
+      display: none;
+      width: 100%;
+      height: 70px;
+      background-color: rgba(255, 255, 255, 0.621);
+      position: absolute;
+      bottom: 3px;
+      font-size: 40px;
+      .heart-icon{
+        color: white;
+         margin-left: 240px;
+         margin-top: 15px;
+      }
+      .heart-icon:hover{
+        transition: all 0.5s ease-in-out;
+
+        color: red;
+        // background-color: red;
+        border: none;
+        //  font-size: 43px;
+         transform: scale(1.1);
+      }
     }
+  }
+  .images-offers:hover{
+    cursor: pointer;
+    .icons-data{
+      display: block !important;
+    }
+  }
     .offers-column {
       display: flex;
       flex-direction: column;

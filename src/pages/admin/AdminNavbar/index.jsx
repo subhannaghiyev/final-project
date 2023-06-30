@@ -16,13 +16,15 @@ const AdminNavbar = () => {
     <div className="admin-header">
       <div className="logo">
         <div className="logo-admin">
-          <img
+          <div className="logo-img">
+            <img
             className="admin-image"
             src="https://preview.colorlib.com/theme/destino/images/logo.png"
             alt=""
           />
           <h3 className="destino-admin">Destino</h3>
           <p className="travel-admin">Travel Agency</p>
+          </div>
           <div className="image-travel">
             <img
               className="img-travel"
@@ -72,6 +74,12 @@ const AdminNavbar = () => {
               <img className="disp-img" src="" alt="" />
               <Link to="/admin/offers">
                 <p className="p-admin">Offers</p>
+              </Link>
+            </div>
+            <div className="image-display-admin">
+              <img className="disp-img" src="" alt="" />
+              <Link to="/admin/add">
+                <p className="p-admin">Add</p>
               </Link>
             </div>
             <div className="image-display-admin">

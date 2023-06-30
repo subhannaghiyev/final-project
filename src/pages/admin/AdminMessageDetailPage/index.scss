@@ -1,0 +1,63 @@
+@font-face {
+    font-family: chillax-regular;
+    src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+
+    .detail-page{
+        position: relative;
+        bottom: 750px;
+        left: 400px;
+        width: 900px;
+        height: 60vh;
+        border: 2px solid gray;
+        border-radius: 10px;
+        background-color: white;
+        .data{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 100px;
+            .data-img{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 2px solid black;
+            }
+            .info-data{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                .data-p{
+                    font-size: 30px;
+                    font-family: chillax-regular;
+                }
+                .email-data{
+                    margin-top: 10px;
+                    font-size: 20px;
+                    font-family: chillax-regular;
+                }
+            }
+        }
+        .column{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding-top: 50px;
+            .subject-data{
+                font-size: 30px;
+                font-family: chillax-regular;
+            }
+            .desc-p{
+                font-size: 18px;
+                font-family: chillax-regular;
+                text-align: justify;
+            }
+        }
+    }
+}

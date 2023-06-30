@@ -1,0 +1,132 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+.sect-offers-column {
+  .sect-offers {
+    display: flex;
+    gap: 40px;
+    padding-top: 70px;
+    padding-left: 90px;
+    .images-offers {
+      position: relative;
+      .img {
+        width: 300px;
+        height: 400px;
+      }
+      .icons-data {
+        display: none;
+        width: 100%;
+        height: 70px;
+        background-color: rgba(255, 255, 255, 0.621);
+        position: absolute;
+        bottom: 3px;
+        font-size: 40px;
+        .heart-icon {
+          color: white;
+          margin-left: 240px;
+          margin-top: 15px;
+        }
+        // .heart-icon:hover {
+        //   transition: all 0.5s ease-in-out;
+
+        //   color: red;
+        //   // background-color: red;
+        //   border: none;
+        //   //  font-size: 43px;
+        //   transform: scale(1.1);
+        // }
+      }
+    }
+    .images-offers:hover {
+      cursor: pointer;
+      .icons-data {
+        display: block !important;
+      }
+    }
+    .offers-column {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      text-align: justify;
+      gap: 10px;
+      font-family: chillax-regular;
+      .dollar {
+        font-size: 14px;
+        font-weight: 500;
+        color: #131a2f;
+        font-family: chillax-regular;
+      }
+      .country {
+        font-size: 20px;
+        font-weight: 500;
+        color: #131a2f;
+        margin-top: 1px;
+        font-family: chillax-regular;
+      }
+      .count {
+        display: inline-block;
+        font-size: 12px;
+        color: #878c9b;
+        font-family: chillax-regular;
+      }
+      .stars {
+        display: flex;
+        gap: 5px;
+        .icon-star {
+          font-size: 20px;
+          color: #fa9e1b;
+        }
+      }
+      .offers-text {
+        width: 720px;
+        color: #7d8293;
+        font-size: 15px;
+        line-height: 2;
+        margin-top: 11px;
+        font-family: chillax-regular;
+      }
+      .btn-offers-wishlist {
+        width: 100px;
+        padding: 12px 28px;
+        border: red;
+        background-color: red;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        margin-top: 50px;
+        transition: all 0.4s ease;
+        border: none;
+        border-radius: 7px;
+        .fa-icons {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+.total-price {
+  width: 400px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 90px;
+  .total {
+    background: #c31432; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #240b36,
+      #c31432
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #240b36,
+      #c31432
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    font-size: 30px;
+    font-family: chillax-regular;
+    color: white;
+  }
+}

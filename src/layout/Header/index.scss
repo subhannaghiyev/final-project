@@ -82,16 +82,28 @@
         }
       }
     }
-    .header-btn {
-      z-index: 999;
-      width: 118px;
-      height: 120px;
-      position: fixed;
-      top: 50px;
-      left: 1148px;
-      background: #fe435b;
-      cursor: pointer;
-      border: none;
+    .icon-button{
+      position: relative;
+      .header-btn {
+        z-index: 999;
+        width: 118px;
+        height: 120px;
+        position: fixed;
+        top: 50px;
+        left: 1148px;
+        background: #fe435b;
+        cursor: pointer;
+        border: none;
+      }
+      .wishlist-count{
+        color: white;
+        font-size: 20px;
+        position: fixed;
+        left: 1225px;
+        top: 75px;
+        z-index: 999;
+        font-family: chillax-regular;
+      }
     }
   }
 }

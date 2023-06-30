@@ -1,4 +1,4 @@
-import { Table, Button } from "antd";
+import { Table, Button, Modal, Input } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -9,28 +9,52 @@ const Home = () => {
     {
       title: "Image",
       dataIndex: "img",
-      render: (img) => <img style={{ width: "250px", height: "300px" }} src={img} alt="Product" />,
+      render: (img) => (
+        <img
+          style={{ width: "250px", height: "300px" }}
+          src={img}
+          alt="Product"
+        />
+      ),
     },
     {
       title: "Price",
       dataIndex: "price",
       render: (price) => (
         <div style={{ fontFamily: "chillax-regular" }}>
-          Price: {price.toLocaleString("en-US", { style: "currency", currency: "USD" })}
+          Price:{" "}
+          {price.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
         </div>
       ),
     },
     {
       title: "Country",
       dataIndex: "country",
-      render: (country) => <div style={{ fontFamily: "chillax-regular" }}>{country}</div>,
+      render: (country) => (
+        <div style={{ fontFamily: "chillax-regular" }}>{country}</div>
+      ),
     },
     {
       title: "Edit",
       dataIndex: "",
       key: "edit",
       render: (text, record) => (
-        <Button style={{ background: "#1677ff", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }} onClick={() => handleEdit(record)}>
+        <Button
+          style={{
+            background: "#1677ff",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
+          onClick={() => {
+            setModal2Open(true);
+            editClick(data);
+          }}
+        >
           Edit
         </Button>
       ),
@@ -42,7 +66,13 @@ const Home = () => {
       render: (text, record) => (
         <Button
           type="danger"
-          style={{ backgroundColor: "red", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }}
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
           onClick={() => showDeleteConfirm(record)}
         >
           Delete
@@ -50,99 +80,63 @@ const Home = () => {
       ),
     },
   ];
-
-  const [data, setData] = useState([]);
-  const [pagination, setPagination] = useState({ current: 1, pageSize: 4 });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:4040/travels", {
-          params: {
-            _page: pagination.current,
-            _limit: pagination.pageSize,
-          },
-        });
-        setData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [pagination]);
-
   const handleTableChange = (pagination, filters, sorter, extra) => {
     setPagination(pagination);
   };
 
-  const handleEdit = (record) => {
-    Swal.fire({
-      title: "Edit Record",
-      html: `
-        <input id="edit-img" type="text" placeholder="Image URL" value="${record.img}" class="swal2-input" />
-        <input id="edit-price" type="number" placeholder="Price" value="${record.price}" class="swal2-input" />
-        <input id="edit-country" type="text" placeholder="Country" value="${record.country}" class="swal2-input" />
-      `,
-      showCancelButton: true,
-      confirmButtonText: "Save",
-      preConfirm: () => {
-        const editedImg = Swal.getPopup().querySelector("#edit-img").value;
-        const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
-        const editedCountry = Swal.getPopup().querySelector("#edit-country").value;
-  
-        if (!editedImg || !editedPrice || !editedCountry) {
-          Swal.showValidationMessage("Please fill in all fields");
-          return false;
-        }
-        return {
-          img: editedImg,
-          price: editedPrice,
-          country: editedCountry,
-        };
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const editedData = result.value;
-        console.log("Edited Data:", editedData);
-  
-      }
-    });
-  };
-  // const handleEdit = (record) => {
-  //   Swal.fire({
-  //     title: "Edit Record",
-  //     html: `
-  //       <input id="edit-price" type="text" placeholder="Price" value="${record.price || ''}" class="swal2-input" />
-  //     `,
-  //     // ...
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
-  
-  //       // Güncellenecek verileri oluşturun
-  //       const updatedData = {
-  //         price: editedPrice,
-  //       };
-  
-  //       // Axios veya fetch kullanarak güncelleme isteğini gönderin
-  //       axios.put(`http://localhost:4040/travels/update/${record._id}`, updatedData)
-  //         .then((response) => {
-  //           // İsteğin başarıyla tamamlandığı durumda yapılacaklar
-  //           console.log("Update response:", response.data);
-  //           // Gerekli güncellemeleri yapın, örneğin veri listesini yeniden yükleyin
-  //         })
-  //         .catch((error) => {
-  //           // İsteğin bir hata ile sonuçlandığı durumda yapılacaklar
-  //           console.error("Update error:", error);
-  //           // Hata durumunu kullanıcıya bildirin veya gerekli işlemleri yapın
-  //         });
-  //     }
-  //   });
-  // };
-  
-  
+  const [data, setData] = useState([]);
+  const [pagination, setPagination] = useState({ current: 1, pageSize: 4 });
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:4040/travels", {
+        params: {
+          _page: pagination.current,
+          _limit: pagination.pageSize,
+        },
+      });
+      setData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, [pagination]);
+
+  const [state, setState] = useState({
+    img: "",
+    price: "",
+    country: "",
+  });
+  const [userId, setUserId] = useState("");
+  const [modal2Open, setModal2Open] = useState(false);
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+  const editClick = (record) => {
+    setState({
+      img: record.img,
+      price: record.price,
+      country: record.country,
+    });
+    if (!isNaN(record._id)) {
+      setUserId(record._id);
+    } else {
+      console.error("Invalid userId:", record._id);
+    }
+  };
+
+  const updateData = async () => {
+    try {
+      console.log(state);
+      await axios.put(state ,`http://localhost:4040/travels/update/${userId}`,);
+      await fetchData();
+    } catch (error) {
+      console.error(error);
+      // Handle the error here
+    }
+  };
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4040/travels/delete/${id}`);
@@ -170,13 +164,49 @@ const Home = () => {
   };
 
   return (
-    <Table
-      className="table-users"
-      columns={columns}
-      dataSource={data}
-      pagination={pagination}
-      onChange={handleTableChange}
-    />
+    <>
+      <Table
+        className="table-users"
+        columns={columns}
+        dataSource={data}
+        pagination={pagination}
+        onChange={handleTableChange}
+      />
+      <Modal
+        title="Vertically centered modal dialog"
+        centered
+        open={modal2Open}
+        onOk={() => {
+          setModal2Open(false);
+          updateData();
+        }}
+        onCancel={() => setModal2Open(false)}
+      >
+        <label>Enter Image</label>
+        <Input
+          name="image"
+          onChange={handleChange}
+          value={state.img}
+          placeholder="Enter image"
+        />
+
+        <label>Enter Price</label>
+        <Input
+          name="price"
+          onChange={handleChange}
+          value={state.price}
+          placeholder="Enter price"
+        />
+
+        <label>Enter Country</label>
+        <Input
+          name="counrty"
+          onChange={handleChange}
+          value={state.country}
+          placeholder="Enter counrty"
+        />
+      </Modal>
+    </>
   );
 };
 

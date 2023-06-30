@@ -174,6 +174,7 @@ const Home = () => {
           <p className="video-p">A day on the island</p>
           <p className="video-p-1">A trip organized by Destino's team</p>
           <CiPlay1
+            
             style={{
               color: "white",
               fontSize: 40,
@@ -212,7 +213,7 @@ const Home = () => {
 
       <Swiper
         slidesPerView={5}
-        spaceBetween={1}
+        spaceBetween={2}
         pagination={{
           clickable: true,
         }}

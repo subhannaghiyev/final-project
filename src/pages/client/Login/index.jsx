@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -40,6 +40,30 @@ const Login = () => {
       }
     }
   };
+  const hasTokenExpired = (token) => {
+    // const key = TOKEN_PREFIX + token;
+  
+    // const expirationTime = redisTemplate.getExpire(key);
+  
+    // return expirationTime !== null && expirationTime <= 0;
+  };
+  
+  const isTokenExpired = () => {
+    const token = localStorage.getItem("token");
+  
+    if (!token) {
+      return true;
+    }
+  
+    return hasTokenExpired(token);
+  };
+  
+  useEffect(() => {
+    if (isTokenExpired()) {
+      localStorage.removeItem("token");
+      navigate("/login");
+    }
+  }, []);
   
   return (
     <>

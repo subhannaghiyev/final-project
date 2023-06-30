@@ -17,6 +17,9 @@ import NewsAdmin from "../pages/admin/NewsAdmin";
 import NotFound from "../pages/client/Notfound";
 import HomeSlider from "../pages/admin/HomeSlider";
 import Meassage from "../pages/admin/Message";
+import AdminMessageDetailPage from "../pages/admin/AdminMessageDetailPage";
+import Add from "../pages/admin/Add";
+import Wishlist from "../pages/client/Wishlist";
 
 export const ROUTER = [
   {
@@ -30,6 +33,10 @@ export const ROUTER = [
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />,
       },
       {
         path: "/news",
@@ -90,8 +97,16 @@ export const ROUTER = [
         element: <Users />,
       },
       {
+        path: "add",
+        element: <Add />,
+      },
+      {
         path: "message",
         element: <Meassage />,
+      },
+      {
+        path: "message/:id",
+        element: <AdminMessageDetailPage />,
       },
       {
         path: "loginAdmin",

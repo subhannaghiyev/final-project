@@ -3,9 +3,15 @@ import "./index.scss";
 import { FaBars, FaThLarge } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import axios from "axios";
-const Offers = () => {
+import { AiTwotoneHeart } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { addToFav } from "../../../redux/slice/FavSlice";
+import { useDispatch } from 'react-redux';
+const Offers = ({handleWishlistClick}) => {
+  const navigate = useNavigate()
   const [data , setData] = useState([])
-
+  const [count , setCount] = useState(0)
+  const dispatch = useDispatch()
   const getData = async () =>{
     const res = await axios.get("http://localhost:4040/offers")
     setData(res.data);
@@ -13,6 +19,12 @@ const Offers = () => {
   useEffect(()=>{
     getData()
   },[])
+  const handleChange = () =>{
+    setCount(count + 1)
+  console.log(count);
+  }
+ 
+
   return (
     <>
       <div className="background-image-2">
@@ -119,6 +131,10 @@ const Offers = () => {
               src={d.img}
               alt=""
             />
+          <div className="icons-data">
+            <AiTwotoneHeart className="heart-icon"
+            onClick={()=>dispatch(addToFav(d))}/>
+          </div>
           </div>
           <div className="offers-column">
             <p className="dollar">From ${d.price}</p>
