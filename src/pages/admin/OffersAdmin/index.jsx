@@ -94,6 +94,8 @@ const OffersAdmin = () => {
         <input id="edit-img" type="text" placeholder="Image URL" value="${record.img}" class="swal2-input" />
         <input id="edit-price" type="number" placeholder="Price" value="${record.price}" class="swal2-input" />
         <input id="edit-country" type="text" placeholder="Country" value="${record.country}" class="swal2-input" />
+        <input id="edit-info" type="text" placeholder="Information" value="${record.info}" class="swal2-input" />
+        <input id="edit-description" type="text" placeholder="Description" value="${record.description}" class="swal2-input" />
       `,
       showCancelButton: true,
       confirmButtonText: "Save",
@@ -101,8 +103,10 @@ const OffersAdmin = () => {
         const editedImg = Swal.getPopup().querySelector("#edit-img").value;
         const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
         const editedCountry = Swal.getPopup().querySelector("#edit-country").value;
+        const editedInformation = Swal.getPopup().querySelector("#edit-info").value;
+        const editedDescription = Swal.getPopup().querySelector("#edit-description").value;
   
-        if (!editedImg || !editedPrice || !editedCountry) {
+        if (!editedImg || !editedPrice || !editedCountry  || !editedInformation || !editedDescription) {
           Swal.showValidationMessage("Please fill in all fields");
           return false;
         }
@@ -110,6 +114,8 @@ const OffersAdmin = () => {
           img: editedImg,
           price: editedPrice,
           country: editedCountry,
+          info : editedInformation,
+          description : editedDescription
         };
       },
     }).then(async (result) => {
@@ -118,11 +124,10 @@ const OffersAdmin = () => {
         console.log("Edited Data:", editedData);
   
         try {
-          await axios.put(`http://localhost:4040/travels/update/${record.id}`, editedData);
+          await axios.put(`http://localhost:4040/offers/update/${record.id}`, editedData);
           fetchData();
         } catch (error) {
           console.error(error);
-          // Handle the error here
         }
         fetchData()
       }
