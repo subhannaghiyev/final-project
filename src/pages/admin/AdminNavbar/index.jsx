@@ -8,7 +8,7 @@ const AdminNavbar = () => {
 
   useEffect(() => {
     if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
-      navigate("admin/loginAdmin");
+      navigate("/admin/loginAdmin");
     }
   }, [location, navigate]);
 

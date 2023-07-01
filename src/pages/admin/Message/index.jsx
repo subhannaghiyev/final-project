@@ -1,6 +1,6 @@
 import { Table, Button } from "antd";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import "./index.scss";
@@ -80,7 +80,7 @@ const Message = () => {
             height: 40,
             fontFamily: "chillax-regular",
           }}
-          onClick={() => showDeleteConfirm(record)}
+          onClick={showDeleteConfirm}
         >
           Delete
         </Button>
@@ -101,7 +101,6 @@ const Message = () => {
           },
         });
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -122,7 +121,10 @@ const Message = () => {
     }
   };
 
-  const showDeleteConfirm = (record) => {
+
+  const showDeleteConfirm =  (event ,record) => {
+    console.log(event);
+    event.stopPropagation();
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -149,12 +151,15 @@ const Message = () => {
         onChange={handleTableChange}
         onRow={(record) => ({
           onClick: (event) => {
-            if (event.target.tagName === "Button") {
-              navigate("/admin/message")
-            }
-            else if ( event.target.tagName !== "img" || event.target.tagName !== "div"){
-                navigate(`${record._id}`);
-            }
+            // if (event.target.tagName === "Button") {
+            //   navigate("/admin/message")
+            //   event.isPropagationStopped()
+              navigate(`${record.id}`);
+            // }
+            // else if ( event.target.tagName !== "img" || event.target.tagName !== "div"){
+            //     event.stopPropagation()
+            //     navigate(`${record.id}`);
+            // }
           },
         })}
       />

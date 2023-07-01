@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "./index.scss";
 
-const NewsAdmin = () => {
+const HomeSlider = () => {
   const columns = [
     {
       title: "Image",
@@ -50,95 +50,68 @@ const NewsAdmin = () => {
   const [data, setData] = useState([]);
   const [pagination, setPagination] = useState({ current: 1, pageSize: 4 });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:4040/sliders", {
-          params: {
-            _page: pagination.current,
-            _limit: pagination.pageSize,
-          },
-        });
-        setData(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:4040/sliders", {
+        params: {
+          _page: pagination.current,
+          _limit: pagination.pageSize,
+        },
+      });
+      setData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    fetchData();
+  fetchData();
+  useEffect(() => {
   }, [pagination]);
 
   const handleTableChange = (pagination, filters, sorter, extra) => {
     setPagination(pagination);
   };
-
   const handleEdit = (record) => {
     Swal.fire({
       title: "Edit Record",
       html: `
         <input id="edit-img" type="text" placeholder="Image URL" value="${record.img}" class="swal2-input" />
-        <input id="edit-price" type="number" placeholder="Price" value="${record.price}" class="swal2-input" />
+        <input id="edit-description" type="text" placeholder="Description" value="${record.description}" class="swal2-input" />
         <input id="edit-country" type="text" placeholder="Country" value="${record.country}" class="swal2-input" />
       `,
       showCancelButton: true,
       confirmButtonText: "Save",
       preConfirm: () => {
         const editedImg = Swal.getPopup().querySelector("#edit-img").value;
-        const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
+        const editedDescription = Swal.getPopup().querySelector("#edit-description").value;
         const editedCountry = Swal.getPopup().querySelector("#edit-country").value;
   
-        if (!editedImg || !editedPrice || !editedCountry) {
+        if (!editedImg || !editedDescription || !editedCountry) {
           Swal.showValidationMessage("Please fill in all fields");
           return false;
         }
         return {
           img: editedImg,
-          price: editedPrice,
+          description: editedDescription,
           country: editedCountry,
         };
       },
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         const editedData = result.value;
         console.log("Edited Data:", editedData);
   
+        try {
+          await axios.put(`http://localhost:4040/sliders/update/${record.id}`, editedData);
+        } catch (error) {
+          console.error(error);
+          // Handle the error here
+        }
+        fetchData()
       }
     });
   };
-  // const handleEdit = (record) => {
-  //   Swal.fire({
-  //     title: "Edit Record",
-  //     html: `
-  //       <input id="edit-price" type="text" placeholder="Price" value="${record.price || ''}" class="swal2-input" />
-  //     `,
-  //     // ...
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
-  
-  //       // Güncellenecek verileri oluşturun
-  //       const updatedData = {
-  //         price: editedPrice,
-  //       };
-  
-  //       // Axios veya fetch kullanarak güncelleme isteğini gönderin
-  //       axios.put(`http://localhost:4040/travels/update/${record._id}`, updatedData)
-  //         .then((response) => {
-  //           // İsteğin başarıyla tamamlandığı durumda yapılacaklar
-  //           console.log("Update response:", response.data);
-  //           // Gerekli güncellemeleri yapın, örneğin veri listesini yeniden yükleyin
-  //         })
-  //         .catch((error) => {
-  //           // İsteğin bir hata ile sonuçlandığı durumda yapılacaklar
-  //           console.error("Update error:", error);
-  //           // Hata durumunu kullanıcıya bildirin veya gerekli işlemleri yapın
-  //         });
-  //     }
-  //   });
-  // };
-  
-  
 
   const handleDelete = async (id) => {
     try {
@@ -177,4 +150,4 @@ const NewsAdmin = () => {
   );
 };
 
-export default NewsAdmin;
+export default HomeSlider;

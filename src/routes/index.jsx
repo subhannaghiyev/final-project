@@ -20,6 +20,7 @@ import Meassage from "../pages/admin/Message";
 import AdminMessageDetailPage from "../pages/admin/AdminMessageDetailPage";
 import Add from "../pages/admin/Add";
 import Wishlist from "../pages/client/Wishlist";
+import Payment from "../pages/client/Payment";
 
 export const ROUTER = [
   {
@@ -61,6 +62,10 @@ export const ROUTER = [
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
   },

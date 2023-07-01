@@ -51,8 +51,7 @@ const Home = () => {
             fontFamily: "chillax-regular",
           }}
           onClick={() => {
-            setModal2Open(true);
-            editClick(data);
+            handleEdit(record)
           }}
         >
           Edit
@@ -104,39 +103,77 @@ const Home = () => {
     fetchData();
   }, [pagination]);
 
-  const [state, setState] = useState({
-    img: "",
-    price: "",
-    country: "",
-  });
-  const [userId, setUserId] = useState("");
-  const [modal2Open, setModal2Open] = useState(false);
-  const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
-  };
-  const editClick = (record) => {
-    setState({
-      img: record.img,
-      price: record.price,
-      country: record.country,
+  const handleEdit = (record) => {
+    Swal.fire({
+      title: "Edit Record",
+      html: `
+        <input id="edit-img" type="text" placeholder="Image URL" value="${record.img}" class="swal2-input" />
+        <input id="edit-price" type="number" placeholder="Price" value="${record.price}" class="swal2-input" />
+        <input id="edit-country" type="text" placeholder="Country" value="${record.country}" class="swal2-input" />
+      `,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      preConfirm: () => {
+        const editedImg = Swal.getPopup().querySelector("#edit-img").value;
+        const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
+        const editedCountry = Swal.getPopup().querySelector("#edit-country").value;
+  
+        if (!editedImg || !editedPrice || !editedCountry) {
+          Swal.showValidationMessage("Please fill in all fields");
+          return false;
+        }
+        return {
+          img: editedImg,
+          price: editedPrice,
+          country: editedCountry,
+        };
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const editedData = result.value;
+        console.log("Edited Data:", editedData);
+  
+        try {
+          await axios.put(`http://localhost:4040/travels/update/${record.id}`, editedData);
+          fetchData();
+        } catch (error) {
+          console.error(error);
+          // Handle the error here
+        }
+        fetchData()
+      }
     });
-    if (!isNaN(record._id)) {
-      setUserId(record._id);
-    } else {
-      console.error("Invalid userId:", record._id);
-    }
   };
 
-  const updateData = async () => {
-    try {
-      console.log(state);
-      await axios.put(state ,`http://localhost:4040/travels/update/${userId}`,);
-      await fetchData();
-    } catch (error) {
-      console.error(error);
-      // Handle the error here
-    }
-  };
+  // const [state, setState] = useState({
+  //   img: "",
+  //   price: "",
+  //   country: "",
+  // });
+  // const [userId, setUserId] = useState("");
+  // const [modal2Open, setModal2Open] = useState(false);
+  // const handleChange = (e) => {
+  //   setState({ ...state, [e.target.name]: e.target.value });
+  // };
+  // const editClick = (record) => {
+  //   console.log(record);
+  //   setState({
+  //     img: record.img,
+  //     price: record.price,
+  //     country: record.country,
+  //   });
+  //   setUserId(record.id);
+  // };
+
+  // const updateData = async () => {
+  //   try {
+  //     await axios.put(`http://localhost:4040/travels/update/${userId}`, state);
+  //   } catch (error) {
+  //     console.error(error);
+  //     // Handle the error here
+  //   }
+  //   fetchData();
+  // };
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4040/travels/delete/${id}`);
@@ -172,7 +209,7 @@ const Home = () => {
         pagination={pagination}
         onChange={handleTableChange}
       />
-      <Modal
+      {/* <Modal
         title="Vertically centered modal dialog"
         centered
         open={modal2Open}
@@ -184,7 +221,7 @@ const Home = () => {
       >
         <label>Enter Image</label>
         <Input
-          name="image"
+          name="img"
           onChange={handleChange}
           value={state.img}
           placeholder="Enter image"
@@ -200,12 +237,12 @@ const Home = () => {
 
         <label>Enter Country</label>
         <Input
-          name="counrty"
+          name="country"
           onChange={handleChange}
           value={state.country}
           placeholder="Enter counrty"
         />
-      </Modal>
+      </Modal> */}
     </>
   );
 };
