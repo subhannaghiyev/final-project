@@ -10,7 +10,7 @@ const Main = () => {
 
   useEffect(() => {
     if (
-      location.pathname.startsWith("/admin/") &&
+      location.pathname.startsWith("/") &&
       !localStorage.getItem("adminLoggedIn")
     ) {
       navigate("/admin/loginAdmin");

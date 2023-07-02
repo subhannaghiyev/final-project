@@ -117,43 +117,10 @@ const NewsAdmin = () => {
       }
     });
   };
-  // const handleEdit = (record) => {
-  //   Swal.fire({
-  //     title: "Edit Record",
-  //     html: `
-  //       <input id="edit-price" type="text" placeholder="Price" value="${record.price || ''}" class="swal2-input" />
-  //     `,
-  //     // ...
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
   
-  //       // Güncellenecek verileri oluşturun
-  //       const updatedData = {
-  //         price: editedPrice,
-  //       };
-  
-  //       // Axios veya fetch kullanarak güncelleme isteğini gönderin
-  //       axios.put(`http://localhost:4040/travels/update/${record._id}`, updatedData)
-  //         .then((response) => {
-  //           // İsteğin başarıyla tamamlandığı durumda yapılacaklar
-  //           console.log("Update response:", response.data);
-  //           // Gerekli güncellemeleri yapın, örneğin veri listesini yeniden yükleyin
-  //         })
-  //         .catch((error) => {
-  //           // İsteğin bir hata ile sonuçlandığı durumda yapılacaklar
-  //           console.error("Update error:", error);
-  //           // Hata durumunu kullanıcıya bildirin veya gerekli işlemleri yapın
-  //         });
-  //     }
-  //   });
-  // };
-  
-  
-
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4040/travels/delete/${id}`);
+      await axios.delete(`http://localhost:4040/news/delete/${id}`);
       setData((prevData) => prevData.filter((item) => item.id !== id));
     } catch (error) {
       console.error(error);

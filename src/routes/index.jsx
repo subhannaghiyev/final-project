@@ -22,6 +22,7 @@ import Add from "../pages/admin/Add";
 import Wishlist from "../pages/client/Wishlist";
 import Payment from "../pages/client/Payment";
 import LogoAdmin from "../pages/admin/LogoAdmin";
+import User from "../pages/client/User";
 
 export const ROUTER = [
   {
@@ -63,6 +64,10 @@ export const ROUTER = [
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/user",
+        element: <User />,
       },
       {
         path: "/payment",

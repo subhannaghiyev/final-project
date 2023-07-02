@@ -148,7 +148,7 @@ const OffersAdmin = () => {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4040/travels/delete/${id}`);
+      await axios.delete(`http://localhost:4040/offers/delete/${id}`);
       setData((prevData) => prevData.filter((item) => item.id !== id));
     } catch (error) {
       console.error(error);

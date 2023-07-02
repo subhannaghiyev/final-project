@@ -122,7 +122,8 @@ const Message = () => {
   const handleTableChange = (pagination, filters, sorter, extra) => {
     setPagination(pagination);
   };
-  const handleDelete = async (id) => {
+  const handleDelete = async (record) => {
+    const { id } = record;
     try {
       await axios.delete(`http://localhost:4040/admin/delete/${id}`);
       setData((prevData) => prevData.filter((item) => item.id !== id));
@@ -130,26 +131,26 @@ const Message = () => {
       console.error(error);
     }
   };
+  
 
+  const showDeleteConfirm = (event, record) => {
+  event.stopPropagation();
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      handleDelete(record);
+      Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    }
+  });
+};
 
-  const showDeleteConfirm =  (event ,record) => {
-    console.log(event);
-    event.stopPropagation();
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        handleDelete(record.id);
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
-      }
-    });
-  };
   const combinedData = data.flatMap((d) => d);
   return (
     <div className="ad-message">

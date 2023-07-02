@@ -166,6 +166,11 @@ const Home = () => {
   };
 
   const showDeleteConfirm = (record) => {
+    if (!record || !record.id) {
+      console.error("Invalid record");
+      return;
+    }
+  
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",

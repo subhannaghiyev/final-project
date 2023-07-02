@@ -1,0 +1,130 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .body {
+    // width: 100%;
+    background: #b92b27; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #1565c0,
+      #b92b27
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #1565c0,
+      #b92b27
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    height: 100vh;
+    .user-client {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: -999;
+      .user-card {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        //   align-items: center;
+        gap: 20px;
+        padding-top: 50px;
+        padding-bottom: 80px;
+        margin-top: 120px;
+        margin-bottom: 50px;
+        width: 45%;
+        height: 35vh;
+        background: #b92b27; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #1565c0,
+          #b92b27
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #1565c0,
+          #b92b27
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+      .img-user {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+      .p-div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 30px;
+        .p-user {
+          font-family: chillax-regular;
+          color: white;
+          font-size: 28px;
+        }
+      }
+      .text-user {
+        position: absolute;
+        left: 30px;
+        top: 270px;
+        .user-data {
+          font-size: 20px;
+          font-family: chillax-regular;
+          color: white;
+        }
+      }
+      .text-user-2 {
+        position: absolute;
+        left: 430px;
+        top: 270px;
+        .user-data {
+          font-size: 20px;
+          font-family: chillax-regular;
+          color: white;
+        }
+      }
+      .text-user-3 {
+        position: absolute;
+        left: 230px;
+        top: 270px;
+        .user-data {
+          font-size: 20px;
+          font-family: chillax-regular;
+          color: white;
+        }
+      }
+      .btn-user {
+        margin-left: 15px;
+        padding: 12px 28px;
+        width: 150px;
+        height: 5.8vh;
+        background: #0f0c29; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #24243e,
+          #302b63,
+          #0f0c29
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #24243e,
+          #302b63,
+          #0f0c29
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: white;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

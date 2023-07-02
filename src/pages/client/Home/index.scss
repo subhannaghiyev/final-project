@@ -398,4 +398,148 @@
     }
   }
 }
+@media screen and (max-width: 1200px) {
+  /* Adjust styles for screens with a width of 1200px or less */
+  .discover {
+    top: 250px;
+  }
+  .discover-2 {
+    top: 44%;
+  }
+  .sect-2 {
+    .input {
+      .inp-select {
+        width: 300px;
+      }
+    }
+  }
+  .sect-3-2 {
+    .h4-2 {
+      font-size: 30px;
+    }
+  }
+  .images {
+    .image-data-1 {
+      .image-1 {
+        .image-data {
+          width: 220px;
+          height: 297px;
+        }
+      }
+    }
+  }
+  .sect-4 {
+    .back-image {
+      width: 400px;
+      height: 330px;
+      .maldive {
+        font-size: 14px;
+      }
+      .degree {
+        font-size: 125px;
+      }
+      .last-minute {
+        font-size: 30px;
+      }
+      .btn-display {
+        .text-sect-4 {
+          width: 300px;
+          font-size: 14px;
+        }
+        .btn-2 {
+          width: 120px;
+        }
+      }
+    }
+  }
+  .sect-6-home {
+    .div-images {
+      /* Adjust the width as needed */
+      width: calc(33.33% - 40px);
+    }
+  }
+}
 
+@media screen and (max-width: 768px) {
+  /* Adjust styles for screens with a width of 768px or less */
+  .discover {
+    top: 100px;
+    .text-p {
+      font-size: 80px;
+    }
+  }
+  .discover-2 {
+    top: 40%;
+    .p-text {
+      width: 100%;
+      font-size: 30px;
+    }
+  }
+  .sect-2 {
+    .input {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      .inp,
+      .inp-select,
+      .inp-price {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .btn {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    }
+  }
+  .sect-3-2 {
+    .h4-2 {
+      font-size: 25px;
+    }
+  }
+  .images {
+    .image-data-1 {
+      .image-1 {
+        .image-data {
+          width: 180px;
+          height: 242px;
+        }
+      }
+      .text-1 {
+        left: 15px;
+        bottom: 30px;
+      }
+    }
+  }
+  .sect-4 {
+    .back-image {
+      width: 320px;
+      height: 260px;
+      .maldive {
+        font-size: 14px;
+      }
+      .degree {
+        font-size: 75px;
+      }
+      .last-minute {
+        font-size: 20px;
+      }
+      .btn-display {
+        .text-sect-4 {
+          width: 100%;
+          font-size: 14px;
+        }
+        .btn-2 {
+          width: 120px;
+        }
+      }
+    }
+  }
+  .sect-6-home {
+    .div-images {
+      width: calc(50% - 20px);
+    }
+  }
+}

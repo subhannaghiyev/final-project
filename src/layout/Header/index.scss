@@ -33,8 +33,8 @@
           left: 70px;
         }
         .text {
-          margin-left: 100px;
-          margin-bottom: -15px;
+          margin-left: 99px;
+          margin-bottom: -12px;
           .h3 {
             width: 112px;
             height: 18px;
@@ -62,10 +62,10 @@
 
       .list {
         display: flex;
-        //   padding-top: 50px;
         gap: 10px;
         align-items: center;
         text-align: center;
+        margin-right: 25px;
         li {
           color: white;
           display: block;
@@ -74,7 +74,7 @@
           color: #ffffff;
           line-height: 121px;
           padding-left: 22px;
-          padding-right: 22px;
+          padding-right: 25px;
           font-family: chillax-regular;
         }
         li:hover{

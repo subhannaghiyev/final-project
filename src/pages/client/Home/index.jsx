@@ -111,7 +111,7 @@ const Home = () => {
       {/* data */}
       <div className="images">
         {data.map((d) => {
-          if (d.id < 5) {
+          if (d.id > 4 && d.id < 10) {
             return (
               <div className="image-data-1" key={d.id}>
                 <div className="image-1">
@@ -119,7 +119,10 @@ const Home = () => {
                 </div>
                 <div className="text-1">
                   <p className="p-dollar">From {d.price}$</p>
-                  <p className="p-country">{d.country}</p>
+                  <div style={{display : "flex" , gap : 5}}>
+                  <p className="p-country">{d.country},</p>
+                  <p className="p-country">{d.capital}</p>
+                  </div>
                 </div>
               </div>
             );
@@ -194,7 +197,7 @@ const Home = () => {
 
       <div className="sect-6-home">
         {data.map((d) => {
-          if (d.id > 4) {
+          if (d.id > 9) {
             return (
               <div className="div-images" key={d.id}>
                 <div className="imagess">

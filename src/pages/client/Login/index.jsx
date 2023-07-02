@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { FiFacebook } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,57 +16,71 @@ const Login = () => {
   let count = 0;
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await axios.post("http://localhost:4040/users/login", {
         username,
         password,
       });
       const token = response.data;
+      localStorage.setItem("userFirstName", token.firstName);
+      localStorage.setItem("userLastName", token.lastName);
+      localStorage.setItem("userPassword", token.password);
+      localStorage.setItem("userAge", token.age);
+      localStorage.setItem("userUsername", token.username);
+      localStorage.setItem("userEmail", token.email);
       const tokenString = JSON.stringify(token);
+      console.log("username", username);
+      console.log("username", token.username);
       console.log(tokenString);
       localStorage.setItem("token", tokenString);
-      if(tokenString.includes('TOKEN:')){
-      navigate("/");
-      }
-      else{
-        navigate("/login")
+      if (username == token.username) {
+        Swal.getPopup("User Login Successfully!");
+        navigate("/");
+        toast.error("User Login not Successfully!");
+      } 
+      else {
+        setErrorMessage("Invalid Username");
+        navigate("/login");
+        toast.error("Invalid Username");
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        navigate("/login")
         setErrorMessage("Invalid password");
+        toast.error("Invalid password");
+        navigate("/login");
       } else {
-        navigate("/login")
+        navigate("/login");
         setErrorMessage("User not found");
+        toast.error("User not found");
       }
     }
   };
   const hasTokenExpired = (token) => {
-    // const key = TOKEN_PREFIX + token;
-  
+    const key = "TOKEN:" + token;
+
     // const expirationTime = redisTemplate.getExpire(key);
-  
+
     // return expirationTime !== null && expirationTime <= 0;
   };
-  
+
   const isTokenExpired = () => {
     const token = localStorage.getItem("token");
-  
+
     if (!token) {
       return true;
     }
-  
+
     return hasTokenExpired(token);
   };
-  
+
   useEffect(() => {
     if (isTokenExpired()) {
       localStorage.removeItem("token");
       navigate("/login");
     }
   }, []);
-  
+
   return (
     <>
       <div className="login-background">

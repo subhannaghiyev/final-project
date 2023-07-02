@@ -1,7 +1,22 @@
 import React from "react";
 import "./index.scss";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { toast } from "react-toastify";
+import { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const LogoAdmin = () => {
+  const navigate = useNavigate()
+  const removeItems = () => {
+        localStorage.removeItem("adminLoggedIn");
+        navigate("/")
+        // Başarılı çıkış mesajını göster
+        toast.success("Başarıyla çıkış yapıldı!");
+        // 1 saniye sonra sayfayı yenile
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+      };
+    
   const adminFirstName = localStorage.getItem("adminFirstName");
   const adminEmail = localStorage.getItem("adminEmail");
   return (
@@ -19,14 +34,60 @@ const LogoAdmin = () => {
           <p className="admin-email">{adminEmail}</p>
         </div>
         <div className="logout">
-          <RiLogoutBoxLine className="icons-logout" onClick={(event)=>{
-            localStorage.removeItem("adminLoggedIn")
-            event.preventDefault()
-          }}/>
+          <RiLogoutBoxLine className="icons-logout" onClick={removeItems
+            
+            // toast.success("Logout Successfully!")
+          }/>
         </div>
       </div>
+      <Toaster
+  position="top-right"
+  reverseOrder={false}
+/>
     </>
   );
 };
 
 export default LogoAdmin;
+// import React from "react";
+// import "./index.scss";
+// import { RiLogoutBoxLine } from "react-icons/ri";
+// import { toast } from "react-toastify";
+
+// const LogoAdmin = () => {
+//   const removeItems = () => {
+//     localStorage.removeItem("adminLoggedIn");
+//     // Başarılı çıkış mesajını göster
+//     toast.success("Başarıyla çıkış yapıldı!");
+//     // 1 saniye sonra sayfayı yenile
+//     setTimeout(() => {
+//       window.location.reload();
+//     }, 1000);
+//   };
+
+//   const adminFirstName = localStorage.getItem("adminFirstName");
+//   const adminEmail = localStorage.getItem("adminEmail");
+
+//   return (
+//     <>
+//       <div className="logo-admin-page">
+//         <div className="images-logo-admin">
+//           <img
+//             className="image-logo-admin"
+//             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABXFBMVEX///8/UbX/t01CQkL/mADTLy83SrOLlM7/pyZ4Rxk9QEL/uE3/nRgzMzPFxcX/lgD/vU7/s0NWVlYqNkE2PEIxRrI8PDw0SLIrQbCtg0f/kgDQFBTsq0z/tkouLi5tPRTh4/JfU0P/oQBJWrjji4vSJSVwcHDd3d3/sjn/8uP3+PwjPK/SIiIwU7uDg4MpKSn/qjNebL+0ut+epdb01NSwsLBgYGDBwcGQkJDs7OzjoEL/rCP/0Z3Dhjf0rkn/7NT/v2P/yoLAyu3/3Lj/rE3/xIbR1Ov44+N0f8bqqanaXV1/icq5NlB3R5FnSpvbLB+goKCLi4vU1NTftYLnmSphUT5xWT1+YDuMaDmfdj+gainWlj67jEmFUh7PmEqQXCP/1aX/wm4RMq3vlGNodMKrsdvVOjrvwMDgfHzYSUmXn9PllZXebW2VQHlMT6yvOV7GMj6HQ4SiPWvdKw7WORSjAAAJ6UlEQVR4nO2cjXPaRhbAEVBMkLHBgCFXgynEDsbBBn8ldhInthM7qdvaTa+9u6Rpk16ctNcm/bj/f+Z29bmSVkLSPrFLbn8z7YyF2Nkfb/e9p4VJKiWRSCQSiUQikUgkEolEIpFIJBKJRPJ/xv7c7uXG6t7egoMN3tOCYX/uzkKrVSwuYjIONm/ynhw7+7t7raLLy2Zxlff8WJlb3fTX+wiCuJtpBepNexB3M8UxetMdxGcLYfymOIgbm6H8EK2pDOKcuyp8bEG8DB1ATHF36qK4Gm4H2oqt1urtfd6zjs"
+//             alt="Logo"
+//           />
+//           <div className="admin-info">
+//             <h4 className="admin-name">{adminFirstName}</h4>
+//             <p className="admin-email">{adminEmail}</p>
+//           </div>
+//         </div>
+//         <div className="logout-icon" onClick={removeItems}>
+//           <RiLogoutBoxLine className="icons-logout" />
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default LogoAdmin;

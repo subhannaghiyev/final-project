@@ -100,18 +100,6 @@ const Offers = ({handleWishlistClick}) => {
             <option value="price">Price</option>
             <option value="name">Name</option>
           </select>
-          <select className="select" name="Filter By" id="Filter By">
-            <option value="filter">Price</option>
-            <option value="show">Show All</option>
-            <option value="price">Price</option>
-            <option value="name">Name</option>
-          </select>
-          <select className="select" name="Filter By" id="Filter By">
-            <option value="filter">Facility</option>
-            <option value="show">Show All</option>
-            <option value="price">Price</option>
-            <option value="name">Name</option>
-          </select>
         </div>
         <div className="offers-icons">
           <p className="pp">Airplane X</p>
@@ -138,14 +126,14 @@ const Offers = ({handleWishlistClick}) => {
           </div>
           <div className="offers-column">
             <p className="dollar">From ${d.price}</p>
-            <p className="country">{d.country}</p>
+            <div style={{display : "flex" ,gap : 10}}>
+            <p className="country">{d.country},</p>
+            <p className="country">{d.capital}</p>
+            </div>
             <p className="count">{d.info}</p>
             <div className="stars">
-              <AiFillStar className="icon-star" />
-              <AiFillStar className="icon-star" />
-              <AiFillStar className="icon-star" />
-              <AiFillStar className="icon-star" />
-              <AiFillStar className="icon-star" />
+              <AiFillStar className="icon-star"/>
+              {d.count}
             </div>
             <p className="offers-text">
               {d.description}
