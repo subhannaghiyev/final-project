@@ -1,13 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card } from "antd";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./index.scss"
 const { Meta } = Card;
 
 const AdminMessageDetailPage = () => {
   const params = useParams();
   const [data, setData] = useState({});
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem("adminLoggedIn")) {
+      navigate("/admin/loginAdmin");
+    }
+  }, [location, navigate]);
 
   const fetchData = async () => {
     try {
@@ -35,8 +43,8 @@ const AdminMessageDetailPage = () => {
             </div>
         </div>
         <div className="column">
-            <p className="subject-data">Subject</p>
-            <p className="desc-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio reprehenderit repudiandae ipsa, possimus molestias eligendi, laudantium qui nostrum eaque quae nisi rerum id et minima maiores in voluptate libero quaerat.</p>
+            <p className="subject-data">{data.subject}</p>
+            <p className="desc-p">{data.message}</p>
        </div>
     </div>
   );

@@ -1,0 +1,53 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .select {
+    width: 100%;
+    padding: 10px;
+    // background-color: white;
+    display: flex;
+    justify-content: space-around;
+    // gap: 50px;
+
+    margin-top: 50px;
+
+    .selectt {
+      width: 110px;
+      margin-left: 250px;
+      padding: 10px;
+      font-family: chillax-regular;
+      background-color: wheat;
+      color: black;
+      border: none;
+    }
+    .btn-data {
+      width: 130px;
+      padding: 14px 32px;
+      height: 6.5vh;
+      border: none;
+      background: #000428; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #004e92,
+        #000428
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #004e92,
+        #000428
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

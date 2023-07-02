@@ -9,11 +9,20 @@
       text-decoration: none;
       list-style: none;
   
-      .table-users{
-          width: 75%;
-          height: 30vh;
-          position: relative;
-          bottom: 850px;
-          left: 300px;
-      }
+
+      .news-admin{
+        width: 72%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 280px;
+        padding-top: 60px;
+    }
+    //   .table-users{
+    //       width: 75%;
+    //       height: 30vh;
+    //       position: relative;
+    //       bottom: 850px;
+    //       left: 300px;
+    //   }
   }

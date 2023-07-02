@@ -1,15 +1,24 @@
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
 
 const NewsAdmin = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
+      navigate("/admin/loginAdmin");
+    }
+  }, [location, navigate]);
   const columns = [
     {
       title: "Image",
       dataIndex: "img",
-      render: (img) => <img style={{ width: "380px", height: "300px" }} src={img} alt="Product" />,
+      render: (img) => <img style={{ width: "280px", height: "240px" }} src={img} alt="Product" />,
     },
     {
       title: "Description",
@@ -166,13 +175,15 @@ const NewsAdmin = () => {
   };
 
   return (
-    <Table
-      className="table-users"
+<div className="news-admin">
+<Table
+      // className="table-users"
       columns={columns}
       dataSource={data}
       pagination={pagination}
       onChange={handleTableChange}
     />
+</div>
   );
 };
 

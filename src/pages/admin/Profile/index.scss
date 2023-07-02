@@ -10,20 +10,19 @@
   list-style: none;
 
   .user {
-    position: relative;
-    bottom: 1110px;
-    left: 350px;
-    padding-right: 100px;
-    width: auto;
+    margin-left:400px ;
+    padding-top: 120px;
     // box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    .p-user {
-        font-size: 28px;
-        color:deeppink;
-        font-family: chillax-regular;
-        margin-bottom: 10px;
-    }
+    // .p-user {
+    //     font-size: 28px;
+    //     color:deeppink;
+    //     font-family: chillax-regular;
+    //     margin-bottom: 10px;
+    // }
     .profile-admin {
-        width: 100%;
+        width: 1200px;
+            // box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
       .profile-images {
         width: 70%;
         height: 30vh;
@@ -51,6 +50,8 @@
               border-radius: 50%;
               border: none;
               background-color: transparent;
+              border: 1px solid gray;
+              object-fit: cover;
             }
           }
           .users-info {
@@ -61,13 +62,11 @@
               font-size: 18px;
               font-family: chillax-regular;
               color:deeppink;
-              font-style: italic;
             }
             .users-p-2 {
               font-size: 18px;
               font-family: chillax-regular;
               color: deeppink;
-              font-style: italic;
             }
           }
         }

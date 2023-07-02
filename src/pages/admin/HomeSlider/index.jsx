@@ -1,15 +1,24 @@
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
 
 const HomeSlider = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
+      navigate("/admin/loginAdmin");
+    }
+  }, [location, navigate]);
   const columns = [
     {
       title: "Image",
       dataIndex: "img",
-      render: (img) => <img style={{ width: "300px", height: "500px" }} src={img} alt="Product" />,
+      render: (img) => <img style={{ width: "200px", height: "200px" }} src={img} alt="Product" />,
     },
     {
       title: "Description",
@@ -140,13 +149,15 @@ const HomeSlider = () => {
   };
 
   return (
-    <Table
-      className="table-users"
+    <div className='home-slider'>
+          <Table
+      className="table-userss"
       columns={columns}
       dataSource={data}
       pagination={pagination}
       onChange={handleTableChange}
     />
+    </div>
   );
 };
 

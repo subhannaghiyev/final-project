@@ -1,12 +1,19 @@
 import { Table, Button } from "antd";
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
 
 const Message = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
+      navigate("/admin/loginAdmin");
+    }
+  }, [location, navigate]);
   const columns = [
     {
       title: "Image",
@@ -142,9 +149,8 @@ const Message = () => {
   };
   const combinedData = data.flatMap((d) => d);
   return (
-    <div>
+    <div className="ad-message">
       <Table
-        className="table-users"
         columns={columns}
         dataSource={combinedData}
         pagination={pagination}

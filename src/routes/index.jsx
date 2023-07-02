@@ -21,6 +21,7 @@ import AdminMessageDetailPage from "../pages/admin/AdminMessageDetailPage";
 import Add from "../pages/admin/Add";
 import Wishlist from "../pages/client/Wishlist";
 import Payment from "../pages/client/Payment";
+import LogoAdmin from "../pages/admin/LogoAdmin";
 
 export const ROUTER = [
   {
@@ -116,6 +117,10 @@ export const ROUTER = [
       {
         path: "loginAdmin",
         element: <LoginAdmin />,
+      },
+      {
+        path: "logoAdmin",
+        element: <LogoAdmin />,
       },
     ],
   },

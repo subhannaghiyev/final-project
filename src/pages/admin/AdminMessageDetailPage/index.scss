@@ -9,9 +9,9 @@
     list-style: none;
 
     .detail-page{
+        margin-left: 350px;
         position: relative;
-        bottom: 750px;
-        left: 400px;
+        top: 120px;        
         width: 900px;
         height: 60vh;
         border: 2px solid gray;
@@ -27,11 +27,15 @@
                 height: 150px;
                 border-radius: 50%;
                 border: 2px solid black;
+                margin-left: 35px;
+                margin-top: 10px;
             }
             .info-data{
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
+                position: relative;
+                right:60px;
                 .data-p{
                     font-size: 30px;
                     font-family: chillax-regular;
@@ -48,15 +52,17 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 20px;
-            padding-top: 50px;
+            padding: 50px;
+
             .subject-data{
                 font-size: 30px;
                 font-family: chillax-regular;
             }
             .desc-p{
-                font-size: 18px;
+                font-size: 20px;
                 font-family: chillax-regular;
                 text-align: justify;
+                color: deeppink;
             }
         }
     }

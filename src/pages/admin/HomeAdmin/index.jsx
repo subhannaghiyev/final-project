@@ -1,17 +1,26 @@
 import { Table, Button, Modal, Input } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
 
 const Home = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
+      navigate("/admin/loginAdmin");
+    }
+  }, [location, navigate]);
   const columns = [
     {
       title: "Image",
       dataIndex: "img",
       render: (img) => (
         <img
-          style={{ width: "250px", height: "300px" }}
+          style={{ width: "200px", height: "200px" }}
           src={img}
           alt="Product"
         />
@@ -144,36 +153,6 @@ const Home = () => {
       }
     });
   };
-
-  // const [state, setState] = useState({
-  //   img: "",
-  //   price: "",
-  //   country: "",
-  // });
-  // const [userId, setUserId] = useState("");
-  // const [modal2Open, setModal2Open] = useState(false);
-  // const handleChange = (e) => {
-  //   setState({ ...state, [e.target.name]: e.target.value });
-  // };
-  // const editClick = (record) => {
-  //   console.log(record);
-  //   setState({
-  //     img: record.img,
-  //     price: record.price,
-  //     country: record.country,
-  //   });
-  //   setUserId(record.id);
-  // };
-
-  // const updateData = async () => {
-  //   try {
-  //     await axios.put(`http://localhost:4040/travels/update/${userId}`, state);
-  //   } catch (error) {
-  //     console.error(error);
-  //     // Handle the error here
-  //   }
-  //   fetchData();
-  // };
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4040/travels/delete/${id}`);
@@ -202,47 +181,14 @@ const Home = () => {
 
   return (
     <>
-      <Table
-        className="table-users"
+  <div className="table-us">
+  <Table
         columns={columns}
         dataSource={data}
         pagination={pagination}
         onChange={handleTableChange}
       />
-      {/* <Modal
-        title="Vertically centered modal dialog"
-        centered
-        open={modal2Open}
-        onOk={() => {
-          setModal2Open(false);
-          updateData();
-        }}
-        onCancel={() => setModal2Open(false)}
-      >
-        <label>Enter Image</label>
-        <Input
-          name="img"
-          onChange={handleChange}
-          value={state.img}
-          placeholder="Enter image"
-        />
-
-        <label>Enter Price</label>
-        <Input
-          name="price"
-          onChange={handleChange}
-          value={state.price}
-          placeholder="Enter price"
-        />
-
-        <label>Enter Country</label>
-        <Input
-          name="country"
-          onChange={handleChange}
-          value={state.country}
-          placeholder="Enter counrty"
-        />
-      </Modal> */}
+  </div>
     </>
   );
 };

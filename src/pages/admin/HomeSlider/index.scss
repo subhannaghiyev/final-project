@@ -9,11 +9,17 @@
       text-decoration: none;
       list-style: none;
   
-      .table-users{
+      .home-slider{
           width: 75%;
           height: 30vh;
           position: relative;
-          bottom: 850px;
-          left: 300px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          top: 485px;
+          left: 140px;
+          width: 90%;
+
       }
   }

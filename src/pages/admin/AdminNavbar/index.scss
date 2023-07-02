@@ -1,118 +1,130 @@
 @font-face {
-    font-family: chillax-regular;
-    src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-  
-    .admin-header {
-      width: 18%;
-      height: 100vh;
-      padding-top: 350px;
-      padding-left: 25px;
-      margin-right: 50px;
-      background-color: deeppink;
-      padding-bottom: 100px;
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .admin-header {
+    width: 18%;
+    height: 100vh;
+    padding-top: 70px;
+    margin-right: 50px;
+    background: #c33764; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #1d2671,
+      #c33764
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #1d2671,
+      #c33764
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    .logo {
       position: relative;
-      bottom: 220px;
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-      .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      top: -30px;
+
+      .logo-admin {
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        top: -30px;
-  
-        .logo-admin {
-          .logo-img{
-            margin-left: 18px;
-            .admin-image {
-              width: 50px;
-              height: 41px;
-              position: absolute;
-              top: -33px;
-              left: -10px;
-            }
-    
-            .destino-admin {
-              width: 112px;
-              height: 18px;
-              font-size: 24px;
-              font-weight: 500;
-              line-height: 0.75;
-              color: white;
-              text-transform: uppercase;
-              font-family: chillax-regular;
-            }
-    
-            .travel-admin {
-              width: 110px;
-              height: 15px;
-              font-size: 10px;
-              font-weight: 500;
-              color: #929292;
-              letter-spacing: 0.13em;
-              margin-top: 2px;
-              padding-left: 2px;
-              text-transform: uppercase;
-              font-family: chillax-regular;
-            }
-          }
-  
-          .image-travel {
+        margin-top: 50px;
+        .logo-img {
+          margin-left: 18px;
+          .admin-image {
             position: absolute;
-            display: flex;
-            margin-right: 100px;
-            gap: 20px;
-            right: -80px;
-            margin-top: 50px;
-  
-            .img-travel {
-              width: 80px;
-              height: 80px;
-              border-radius: 50%;
-            }
-  
-            .admin-travel {
-              color: linear-gradient(
-                90deg,
-                rgb(133, 27, 172) 60%,
-                rgba(250, 0, 141, 1) 83%,
-                rgba(152, 22, 141, 1) 100%,
-                rgba(0, 212, 255, 1) 100%
-              );
-              color: white;
-              font-family: chillax-regular;
-              font-size: 20px;
-              margin-top: 10px;
-            }
+            top: -33px;
+            width: 50px;
+            height: 41px;
           }
-  
-          .info-admin {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding-top: 200px;
-            .image-display-admin {
-              margin-left: 10px;
-              .disp-img {
-                display: flex;
-              }
-  
-              .p-admin {
-                font-size: 22px;
-                font-family: chillax-regular;
-                color: white;
-                font-style: italic;
-              }
+
+          .destino-admin {
+            width: 112px;
+            height: 18px;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 0.75;
+            color: white;
+            text-transform: uppercase;
+            font-family: chillax-regular;
+            padding-left: 8px;
+            margin-left: 20px;
+          }
+
+          .travel-admin {
+            width: 110px;
+            height: 15px;
+            font-size: 10px;
+            font-weight: 500;
+            color: #929292;
+            letter-spacing: 0.13em;
+            margin-top: 2px;
+            padding-left: 30px;
+            text-transform: uppercase;
+            font-family: chillax-regular;
+          }
+        }
+
+        .image-travel {
+          // position: absolute;
+          display: flex;
+          margin-right: 100px;
+          gap: 20px;
+          // right: -80px;
+          margin-top: 25px;
+          padding-left: 10px;
+          align-items: center;
+          .img-travel {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+          }
+
+          .admin-travel {
+            color: linear-gradient(
+              90deg,
+              rgb(133, 27, 172) 60%,
+              rgba(250, 0, 141, 1) 83%,
+              rgba(152, 22, 141, 1) 100%,
+              rgba(0, 212, 255, 1) 100%
+            );
+            color: white;
+            font-family: chillax-regular;
+            font-size: 20px;
+            margin-top: 10px;
+          }
+        }
+
+        .info-admin {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          padding-top: 20px;
+          .image-display-admin {
+            margin-left: 15px;
+            .disp-img {
+              display: flex;
+            }
+
+            .p-admin {
+              font-size: 22px;
+              font-family: chillax-regular;
+              color: white;
             }
           }
         }
       }
     }
   }
-  
+}

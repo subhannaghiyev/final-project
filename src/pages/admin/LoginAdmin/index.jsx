@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import "./index.scss";
+import { toast } from "react-toastify";
 
 const LoginAdmin = () => {
   const navigate = useNavigate();
@@ -26,9 +27,17 @@ const LoginAdmin = () => {
           password,
         }
       );
+      const adminData = response.data
 
-      if (response.data === "Admin Login Successfully") {
+      if (adminData) {
         localStorage.setItem("adminLoggedIn", "true");
+        localStorage.setItem("adminEmail", email);
+        localStorage.setItem("adminPassword", password);
+        localStorage.setItem("adminUsername" , adminData.username)
+        localStorage.setItem("adminAge" , adminData.age)
+        localStorage.setItem("adminFirstName" , adminData.firstName)
+        localStorage.setItem("adminLastName" , adminData.lastName)
+        toast.done("Admin Login Successfully!")
         navigate("/admin");
       } else {
         setErrorMessage("Invalid email or password");

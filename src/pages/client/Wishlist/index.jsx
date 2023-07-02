@@ -5,6 +5,7 @@ import { removeFromFav } from "../../../redux/slice/FavSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
 import { Button } from "antd";
+import { addToCart } from "../../../redux/slice/cartSlice";
 const Wishlist = () => {
   const data = useSelector((state) => state.addToFav.value);
   const dispatch = useDispatch();
@@ -12,6 +13,9 @@ const Wishlist = () => {
   data.forEach((d) => {
     totalPrice += d.price;
   });
+  const handleAddToCart = (data) => {
+    dispatch(addToCart(data));
+  };
   return (
     <>
       <div>
@@ -46,7 +50,7 @@ const Wishlist = () => {
 
         <div className="total-price">
             <h2 className="total">Total Price : {totalPrice}</h2>
-            <Button type="primary" className="payment">Payment  <FaCcAmazonPay className="payment-icon"/></Button>
+            <Button type="primary" className="payment"  onClick={() => handleAddToCart(data)}>Payment  <FaCcAmazonPay className="payment-icon"/></Button>
         </div>
       </div>
     </>

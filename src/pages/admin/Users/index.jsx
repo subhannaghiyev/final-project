@@ -1,10 +1,19 @@
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigation } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
 
 const Users = () => {
+  const location = useLocation();
+  const navigate = useNavigation();
+
+  useEffect(() => {
+    if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
+      navigate("/admin/loginAdmin");
+    }
+  }, [location, navigate]);
   const columns = [
     {
       title: "FirstName",
@@ -14,56 +23,32 @@ const Users = () => {
     {
     title: "LastName",
     dataIndex: "lastName",
-    render: (lastName) => <div style={{ fontFamily: "chillax-regular" ,width:350 , textAlign:"justify"}}>{lastName}</div>,
+    render: (lastName) => <div style={{ fontFamily: "chillax-regular" , textAlign:"justify"}}>{lastName}</div>,
    },
    {
     title: "Age",
     dataIndex: "age",
-    render: (age) => <div style={{ fontFamily: "chillax-regular" ,width:350 , textAlign:"justify"}}>{age}</div>,
+    render: (age) => <div style={{ fontFamily: "chillax-regular" , textAlign:"justify"}}>{age}</div>,
   },
   {
     title: "Username",
     dataIndex: "username",
-    render: (username) => <div style={{ fontFamily: "chillax-regular" ,width:350 , textAlign:"justify"}}>{username}</div>,
+    render: (username) => <div style={{ fontFamily: "chillax-regular" , textAlign:"justify"}}>{username}</div>,
   },
   {
     title: "Email",
     dataIndex: "email",
-    render: (email) => <div style={{ fontFamily: "chillax-regular" ,width:350 , textAlign:"justify"}}>{email}</div>,
+    render: (email) => <div style={{ fontFamily: "chillax-regular" , textAlign:"justify"}}>{email}</div>,
   },
   {
     title: "IsAdmin",
     dataIndex: "isAdmin",
     render: (isAdmin) => (
-      <div style={{ fontFamily: "chillax-regular", width: 350, textAlign: "justify" }}>
+      <div style={{ fontFamily: "chillax-regular", textAlign: "justify" }}>
         {isAdmin ? "True" : "False"} {/* Örneğin, isAdmin true ise "Yes", değilse "No" olarak gösterin */}
       </div>
     ),
   },
-    {
-      title: "Edit",
-      dataIndex: "",
-      key: "edit",
-      render: (text, record) => (
-        <Button style={{ background: "#1677ff", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }} onClick={() => handleEdit(record)}>
-          Edit
-        </Button>
-      ),
-    },
-    {
-      title: "Delete",
-      dataIndex: "",
-      key: "delete",
-      render: (text, record) => (
-        <Button
-          type="danger"
-          style={{ backgroundColor: "red", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }}
-          onClick={() => showDeleteConfirm(record)}
-        >
-          Delete
-        </Button>
-      ),
-    },
   ];
 
   const [data, setData] = useState([]);
@@ -72,23 +57,16 @@ const [pagination, setPagination] = useState({ current: 1, pageSize: 4 });
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem("token"); 
-      console.log(token);
-
-      if (token) {
-        const response = await axios.get("http://localhost:4040/users", {
-          headers: {
-            authorization: `${token}`, // Token'ı "Bearer" ile birlikte ekleyin
-          },
-        });
-        
-        setData(response.data);
-        console.log(response.data);
-      } else {
-        console.log("Token not found in localStorage");
-      }
+      const response = await axios.get("http://localhost:4040/users", {
+        // headers: {
+        //   authorization: `Bearer ${token}`, // Token'ı "Bearer" ile birlikte ekleyin
+        // },
+      });
+      
+      setData(response.data);
+      console.log(response.data);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -193,9 +171,8 @@ useEffect(() => {
   };
 
   return (
-    <div>
+    <div className="user-admin">
       <Table
-      className="table-users"
       columns={columns}
       dataSource={data}
       pagination={pagination}

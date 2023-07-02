@@ -1,10 +1,20 @@
+import { textAlign } from "@mui/system";
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
 
 const OffersAdmin = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
+      navigate("/admin/loginAdmin");
+    }
+  }, [location, navigate]);
   const columns = [
     {
       title: "Image",
@@ -33,7 +43,7 @@ const OffersAdmin = () => {
     {
       title: "Description",
       dataIndex: "description",
-      render: (description) => <div style={{ fontFamily: "chillax-regular" ,width:200}}>{description}</div>,
+      render: (description) => <div style={{ fontFamily: "chillax-regular" ,width:200,textAlign:"justify"}}>{description}</div>,
     },
     {
       title: "Edit",
@@ -160,13 +170,14 @@ const OffersAdmin = () => {
   };
 
   return (
-    <Table
-      className="table-users"
+<div className="offers-admin">
+<Table
       columns={columns}
       dataSource={data}
       pagination={pagination}
       onChange={handleTableChange}
     />
+</div>
   );
 };
 
