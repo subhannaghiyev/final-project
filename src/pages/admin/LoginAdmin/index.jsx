@@ -56,7 +56,7 @@ const LoginAdmin = () => {
             <div className="login-admin-image">
               <img
                 className="login-admin-img"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiTnK3MkKyTnWAnokr-4xmeUn_VdgRkhG4ig&usqp=CAU"
+                src="https://www.cariapp.com/resizeImg.php?w=600&src=https://www.cariapp.com/admin514/img/dashboard.png"
                 alt=""
               />
             </div>

@@ -1,16 +1,19 @@
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigation } from "react-router-dom";
+import { useLocation, useNavigate, useNavigation } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
 
 const Users = () => {
   const location = useLocation();
-  const navigate = useNavigation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname === "/admin" && !localStorage.getItem("adminLoggedIn")) {
+    if (
+      location.pathname.startsWith("/admin/") &&
+      !localStorage.getItem("adminLoggedIn")
+    ) {
       navigate("/admin/loginAdmin");
     }
   }, [location, navigate]);

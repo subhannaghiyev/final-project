@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigation } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import "./index.scss";
 const Profile = () => {
   const location = useLocation();
-  const navigate = useNavigation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (
-      location.pathname === "/admin" &&
+      location.pathname.startsWith("/admin/")  &&
       !localStorage.getItem("adminLoggedIn")
     ) {
       navigate("/admin/loginAdmin");
