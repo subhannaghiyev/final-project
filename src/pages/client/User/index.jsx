@@ -19,6 +19,10 @@ const User = () => {
     const userPassword = localStorage.removeItem("userPassword");
     navigate("/login")
   };
+  const goBack = () => {
+    navigate("/")
+  };
+
   return (
     <>
       <div className="body">
@@ -54,7 +58,10 @@ const User = () => {
               <p className="user-data">{userEmail}</p>
             </div>
           </div>
+          <div className="buttons-user">
           <button className="btn-user" onClick={logoutData}>Logout</button>
+          <button className="btn-user-1" onClick={goBack}>Go Back</button>
+          </div>
         </div>
       </div>
     </>

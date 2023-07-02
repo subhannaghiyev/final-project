@@ -102,28 +102,55 @@
           color: white;
         }
       }
-      .btn-user {
-        margin-left: 15px;
-        padding: 12px 28px;
-        width: 150px;
-        height: 5.8vh;
-        background: #0f0c29; /* fallback for old browsers */
-        background: -webkit-linear-gradient(
-          to right,
-          #24243e,
-          #302b63,
-          #0f0c29
-        ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-          to right,
-          #24243e,
-          #302b63,
-          #0f0c29
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        color: white;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
+      .buttons-user {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        .btn-user {
+          margin-left: 15px;
+          padding: 12px 28px;
+          width: 150px;
+          height: 5.8vh;
+          background: #0f0c29; /* fallback for old browsers */
+          background: -webkit-linear-gradient(
+            to right,
+            #24243e,
+            #302b63,
+            #0f0c29
+          ); /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(
+            to right,
+            #24243e,
+            #302b63,
+            #0f0c29
+          ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          color: white;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+        }
+        .btn-user-1 {
+          margin-left: 15px;
+          padding: 12px 28px;
+          width: 150px;
+          height: 5.8vh;
+          background: #0f0c29; /* fallback for old browsers */
+          background: #000000; /* fallback for old browsers */
+          background: -webkit-linear-gradient(
+            to right,
+            #0f9b0f,
+            #000000
+          ); /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(
+            to right,
+            #0f9b0f,
+            #000000
+          ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          color: white;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+        }
       }
     }
   }

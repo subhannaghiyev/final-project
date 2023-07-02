@@ -5,18 +5,24 @@ import { toast } from "react-toastify";
 import { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 const LogoAdmin = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const removeItems = () => {
-        localStorage.removeItem("adminLoggedIn");
-        navigate("/")
-        // Başarılı çıkış mesajını göster
-        toast.success("Başarıyla çıkış yapıldı!");
-        // 1 saniye sonra sayfayı yenile
-        setTimeout(() => {
-          window.location.reload();
-        }, 100);
-      };
-    
+    localStorage.removeItem("adminLoggedIn");
+    const adminFirstName = localStorage.removeItem("adminFirstName");
+    const adminLastName = localStorage.removeItem("adminLastName");
+    const adminEmail = localStorage.removeItem("adminEmail");
+    const adminUsername = localStorage.removeItem("adminUsername");
+    const adminAge = localStorage.removeItem("adminAge");
+    const adminPassword = localStorage.removeItem("adminPassword");
+    navigate("/login");
+    // Başarılı çıkış mesajını göster
+    toast.success("Başarıyla çıkış yapıldı!");
+    // 1 saniye sonra sayfayı yenile
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
+  };
+
   const adminFirstName = localStorage.getItem("adminFirstName");
   const adminEmail = localStorage.getItem("adminEmail");
   return (
@@ -34,16 +40,17 @@ const LogoAdmin = () => {
           <p className="admin-email">{adminEmail}</p>
         </div>
         <div className="logout">
-          <RiLogoutBoxLine className="icons-logout" onClick={removeItems
-            
-            // toast.success("Logout Successfully!")
-          }/>
+          <RiLogoutBoxLine
+            className="icons-logout"
+            onClick={
+              removeItems
+
+              // toast.success("Logout Successfully!")
+            }
+          />
         </div>
       </div>
-      <Toaster
-  position="top-right"
-  reverseOrder={false}
-/>
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 };
