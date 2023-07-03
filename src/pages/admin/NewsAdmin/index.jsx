@@ -1,6 +1,7 @@
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
@@ -21,19 +22,44 @@ const NewsAdmin = () => {
     {
       title: "Image",
       dataIndex: "img",
-      render: (img) => <img style={{ width: "280px", height: "240px" }} src={img} alt="Product" />,
+      render: (img) => (
+        <img
+          style={{ width: "280px", height: "240px" }}
+          src={img}
+          alt="Product"
+        />
+      ),
     },
     {
       title: "Description",
       dataIndex: "description",
-      render: (description) => <div style={{ fontFamily: "chillax-regular" ,width:350 , textAlign:"justify"}}>{description}</div>,
+      render: (description) => (
+        <div
+          style={{
+            fontFamily: "chillax-regular",
+            width: 350,
+            textAlign: "justify",
+          }}
+        >
+          {description}
+        </div>
+      ),
     },
     {
       title: "Edit",
       dataIndex: "",
       key: "edit",
       render: (text, record) => (
-        <Button style={{ background: "#1677ff", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }} onClick={() => handleEdit(record)}>
+        <Button
+          style={{
+            background: "#1677ff",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
+          onClick={() => handleEdit(record)}
+        >
           Edit
         </Button>
       ),
@@ -45,7 +71,13 @@ const NewsAdmin = () => {
       render: (text, record) => (
         <Button
           type="danger"
-          style={{ backgroundColor: "red", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }}
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
           onClick={() => showDeleteConfirm(record)}
         >
           Delete
@@ -73,8 +105,7 @@ const NewsAdmin = () => {
   };
 
   fetchData();
-  useEffect(() => {
-  }, [pagination]);
+  useEffect(() => {}, [pagination]);
 
   const handleTableChange = (pagination, filters, sorter, extra) => {
     setPagination(pagination);
@@ -91,8 +122,9 @@ const NewsAdmin = () => {
       confirmButtonText: "Save",
       preConfirm: () => {
         const editedImg = Swal.getPopup().querySelector("#edit-img").value;
-        const editedDescription = Swal.getPopup().querySelector("#edit-description").value;
-  
+        const editedDescription =
+          Swal.getPopup().querySelector("#edit-description").value;
+
         if (!editedImg || !editedDescription) {
           Swal.showValidationMessage("Please fill in all fields");
           return false;
@@ -106,18 +138,21 @@ const NewsAdmin = () => {
       if (result.isConfirmed) {
         const editedData = result.value;
         console.log("Edited Data:", editedData);
-  
+
         try {
-          await axios.put(`http://localhost:4040/news/update/${record.id}`, editedData);
+          await axios.put(
+            `http://localhost:4040/news/update/${record.id}`,
+            editedData
+          );
         } catch (error) {
           console.error(error);
           // Handle the error here
         }
-        fetchData()
+        fetchData();
       }
     });
   };
-  
+
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4040/news/delete/${id}`);
@@ -145,15 +180,22 @@ const NewsAdmin = () => {
   };
 
   return (
-<div className="news-admin">
-<Table
-      // className="table-users"
-      columns={columns}
-      dataSource={data}
-      pagination={pagination}
-      onChange={handleTableChange}
-    />
-</div>
+    <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>News Admin</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+    <div className="news-admin">
+      <Table
+        // className="table-users"
+        columns={columns}
+        dataSource={data}
+        pagination={pagination}
+        onChange={handleTableChange}
+      />
+    </div>
+    </>
   );
 };
 

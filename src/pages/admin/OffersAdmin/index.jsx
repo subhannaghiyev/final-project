@@ -2,6 +2,7 @@ import { textAlign } from "@mui/system";
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
@@ -22,38 +23,71 @@ const OffersAdmin = () => {
     {
       title: "Image",
       dataIndex: "img",
-      render: (img) => <img style={{ width: "250px", height: "300px" }} src={img} alt="Product" />,
+      render: (img) => (
+        <img
+          style={{ width: "250px", height: "300px" }}
+          src={img}
+          alt="Product"
+        />
+      ),
     },
     {
       title: "Price",
       dataIndex: "price",
       render: (price) => (
         <div style={{ fontFamily: "chillax-regular" }}>
-          Price: {price.toLocaleString("en-US", { style: "currency", currency: "USD" })}
+          Price:{" "}
+          {price.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
         </div>
       ),
     },
     {
       title: "Country",
       dataIndex: "country",
-      render: (country) => <div style={{ fontFamily: "chillax-regular" }}>{country}</div>,
+      render: (country) => (
+        <div style={{ fontFamily: "chillax-regular" }}>{country}</div>
+      ),
     },
     {
       title: "Information",
       dataIndex: "info",
-      render: (info) => <div style={{ fontFamily: "chillax-regular"}}>{info}</div>,
+      render: (info) => (
+        <div style={{ fontFamily: "chillax-regular" }}>{info}</div>
+      ),
     },
     {
       title: "Description",
       dataIndex: "description",
-      render: (description) => <div style={{ fontFamily: "chillax-regular" ,width:200,textAlign:"justify"}}>{description}</div>,
+      render: (description) => (
+        <div
+          style={{
+            fontFamily: "chillax-regular",
+            width: 200,
+            textAlign: "justify",
+          }}
+        >
+          {description}
+        </div>
+      ),
     },
     {
       title: "Edit",
       dataIndex: "",
       key: "edit",
       render: (text, record) => (
-        <Button style={{ background: "#1677ff", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }} onClick={() => handleEdit(record)}>
+        <Button
+          style={{
+            background: "#1677ff",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
+          onClick={() => handleEdit(record)}
+        >
           Edit
         </Button>
       ),
@@ -65,7 +99,13 @@ const OffersAdmin = () => {
       render: (text, record) => (
         <Button
           type="danger"
-          style={{ backgroundColor: "red", color: "white", width: 80, height: 40, fontFamily: "chillax-regular" }}
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
           onClick={() => showDeleteConfirm(record)}
         >
           Delete
@@ -93,8 +133,7 @@ const OffersAdmin = () => {
   };
 
   fetchData();
-  useEffect(() => {
-  }, [pagination]);
+  useEffect(() => {}, [pagination]);
 
   const handleTableChange = (pagination, filters, sorter, extra) => {
     setPagination(pagination);
@@ -115,11 +154,20 @@ const OffersAdmin = () => {
       preConfirm: () => {
         const editedImg = Swal.getPopup().querySelector("#edit-img").value;
         const editedPrice = Swal.getPopup().querySelector("#edit-price").value;
-        const editedCountry = Swal.getPopup().querySelector("#edit-country").value;
-        const editedInformation = Swal.getPopup().querySelector("#edit-info").value;
-        const editedDescription = Swal.getPopup().querySelector("#edit-description").value;
-  
-        if (!editedImg || !editedPrice || !editedCountry  || !editedInformation || !editedDescription) {
+        const editedCountry =
+          Swal.getPopup().querySelector("#edit-country").value;
+        const editedInformation =
+          Swal.getPopup().querySelector("#edit-info").value;
+        const editedDescription =
+          Swal.getPopup().querySelector("#edit-description").value;
+
+        if (
+          !editedImg ||
+          !editedPrice ||
+          !editedCountry ||
+          !editedInformation ||
+          !editedDescription
+        ) {
           Swal.showValidationMessage("Please fill in all fields");
           return false;
         }
@@ -127,22 +175,25 @@ const OffersAdmin = () => {
           img: editedImg,
           price: editedPrice,
           country: editedCountry,
-          info : editedInformation,
-          description : editedDescription
+          info: editedInformation,
+          description: editedDescription,
         };
       },
     }).then(async (result) => {
       if (result.isConfirmed) {
         const editedData = result.value;
         console.log("Edited Data:", editedData);
-  
+
         try {
-          await axios.put(`http://localhost:4040/offers/update/${record.id}`, editedData);
+          await axios.put(
+            `http://localhost:4040/offers/update/${record.id}`,
+            editedData
+          );
           fetchData();
         } catch (error) {
           console.error(error);
         }
-        fetchData()
+        fetchData();
       }
     });
   };
@@ -173,14 +224,21 @@ const OffersAdmin = () => {
   };
 
   return (
-<div className="offers-admin">
-<Table
-      columns={columns}
-      dataSource={data}
-      pagination={pagination}
-      onChange={handleTableChange}
-    />
-</div>
+    <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Offers Admin</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+    <div className="offers-admin">
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={pagination}
+        onChange={handleTableChange}
+      />
+    </div>
+    </>
   );
 };
 

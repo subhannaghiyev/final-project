@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 const User = () => {
@@ -25,6 +26,11 @@ const User = () => {
 
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>User</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="body">
         <div className="user-client">
           <div className="user-card">

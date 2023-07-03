@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
 import { Button } from "antd";
 import { addToCart } from "../../../redux/slice/cartSlice";
+import { Helmet } from "react-helmet";
 const Wishlist = () => {
   const data = useSelector((state) => state.addToFav.value);
   const dispatch = useDispatch();
@@ -18,6 +19,11 @@ const Wishlist = () => {
   };
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>WishList</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div>
         <div className="sect-offers-column">
           {data &&

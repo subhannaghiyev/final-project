@@ -1,6 +1,7 @@
 import { Table, Button } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
@@ -154,6 +155,12 @@ const Message = () => {
 
   const combinedData = data.flatMap((d) => d);
   return (
+    <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Message</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
     <div className="ad-message">
       <Table
         columns={columns}
@@ -167,6 +174,7 @@ const Message = () => {
         })}
       />
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./index.scss";
 
@@ -17,6 +18,11 @@ const AdminNavbar = () => {
 
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Admin Navbar</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
     <div className="admin-header">
       <div className="logo">
         <div className="logo-admin">

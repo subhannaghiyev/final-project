@@ -4,6 +4,7 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 import { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 const LogoAdmin = () => {
   const navigate = useNavigate();
   const removeItems = () => {
@@ -27,6 +28,11 @@ const LogoAdmin = () => {
   const adminEmail = localStorage.getItem("adminEmail");
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Logo Admin</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="logo-admin-page">
         <div className="images-logo-admin">
           <img

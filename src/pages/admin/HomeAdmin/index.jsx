@@ -1,6 +1,7 @@
 import { Table, Button, Modal, Input } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./index.scss";
@@ -189,6 +190,11 @@ const Home = () => {
 
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home Admin</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
   <div className="table-us">
   <Table
   className="table-user-2"

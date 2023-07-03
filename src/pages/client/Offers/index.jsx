@@ -7,6 +7,7 @@ import { AiTwotoneHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { addToFav } from "../../../redux/slice/FavSlice";
 import { useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
 const Offers = ({ handleWishlistClick }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
@@ -52,6 +53,11 @@ const Offers = ({ handleWishlistClick }) => {
 
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Offers</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="background-image-2">
         <div className="text-about">
           <p className="p-about">Offers</p>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
@@ -171,6 +172,11 @@ const Add = () => {
 
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Add</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="select">
         <select
           className="selectt"

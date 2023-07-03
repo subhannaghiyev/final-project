@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import "./index.scss";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const LoginAdmin = () => {
   const navigate = useNavigate();
@@ -48,6 +49,12 @@ const LoginAdmin = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login Admin</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
     <div className="login-admin">
       {!localStorage.getItem("adminLoggedIn") && (
         <>
@@ -92,6 +99,7 @@ const LoginAdmin = () => {
         </>
       )}
     </div>
+    </>
   );
 };
 

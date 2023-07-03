@@ -1,6 +1,7 @@
 // import React from "react";
 // import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./index.scss";
 
@@ -18,6 +19,11 @@ const Main = () => {
   }, [location, navigate]);
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Main</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="color-main">
         <div className="text-main">
           <h1 className="h1-main">Welcome To Admin Page</h1>

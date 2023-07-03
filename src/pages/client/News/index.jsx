@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 const News = () => {
@@ -14,6 +15,11 @@ const News = () => {
   },[])
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>News</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="background-image-2-news">
         <div className="text-about">
           <p className="p-about">News</p>

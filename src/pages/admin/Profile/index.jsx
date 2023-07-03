@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useNavigate} from "react-router-dom";
 import "./index.scss";
 const Profile = () => {
@@ -22,6 +23,11 @@ const Profile = () => {
   const adminLastName = localStorage.getItem("adminLastName");
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Profile</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="main">
         <div className="user">
           <div className="profile-admin">

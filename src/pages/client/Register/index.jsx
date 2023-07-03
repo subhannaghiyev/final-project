@@ -12,6 +12,7 @@ import "./styles.css";
 // import required modules
 import { Autoplay, Pagination } from "swiper";
 import { ProductForm } from "../../../schema";
+import { Helmet } from "react-helmet";
 const Register = () => {
   const navigate = useNavigate();
   const {
@@ -37,6 +38,12 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Register</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
     <div className="login">
       <div className="modalka">
         <div className="information">
@@ -149,6 +156,7 @@ const Register = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
