@@ -10,6 +10,13 @@ import axios from "axios";
 const Home = () => {
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
+  const [destination, setDestination] = useState("");
+  const [adventureType, setAdventureType] = useState("Categories");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [filteredData, setFilteredData] = useState(
+    data.filter((d) => d.id > 4 && d.id < 10)
+  );
 
   const getData = async () => {
     const res = await axios.get("http://localhost:4040/travels");
@@ -21,6 +28,35 @@ const Home = () => {
     const res = await axios.get("http://localhost:4040/sliders");
     setData2(res.data);
     console.log(res.data);
+  };
+  const handleFilter = () => {
+    console.log("Data:", data); 
+    // Apply your filtering logic here based on the selected values
+    const filteredData = data.filter((d) => {
+      // Filter by destination (case-insensitive)
+      const destinationMatch = d.country
+        .toLowerCase()
+        .includes(destination.toLowerCase());
+      console.log("Destination Match:", destinationMatch);
+
+      // Filter by adventure type
+      const adventureTypeMatch = d.country === adventureType;
+      console.log("Adventure Type Match:", adventureTypeMatch);
+
+      // Filter by price range
+      const minPriceMatch = minPrice === "" || d.price >= parseInt(minPrice);
+      console.log("Min Price Match:", minPriceMatch);
+      const maxPriceMatch = maxPrice === "" || d.price <= parseInt(maxPrice);
+      console.log("Max Price Match:", maxPriceMatch);
+
+      return (
+        destinationMatch || adventureTypeMatch || minPriceMatch || maxPriceMatch
+      );
+    });
+
+    console.log("Filtered Data:", filteredData);
+
+    setFilteredData(filteredData);
   };
 
   useEffect(() => {
@@ -42,66 +78,92 @@ const Home = () => {
         <div className="text-h3">
           <h3 className="h3">Find the Adventure of a lifetime</h3>
         </div>
-        {data.map((d) => (
-          <div className="input">
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+        <div className="input">
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
             >
-              <label
-                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-              >
-                Destination:
-              </label>
-              <input className="inp" type="text" placeholder="Keyword here" />
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
-              <label
-                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-              >
-                Adventure type:
-              </label>
-              <select className="inp-select">
-                <option className="inp-color" value="Categories">
-                  Categories
-                </option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </select>
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
-              <label
-                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-              >
-                Min price
-              </label>
-              <select className="inp-price">
-                {data.map((d2) => (
-                  <option key={d.id}>{d2.price}</option>
-                ))}
-              </select>
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
-              <label
-                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-              >
-                Max price
-              </label>
-              <select className="inp-price">
-                {data.map((d2) => (
-                  <option value={d2.price}>{d2.price}</option>
-                ))}
-              </select>
-            </div>
-            <button className="btn">Find</button>
+              Destination:
+            </label>
+            <input
+              className="inp"
+              type="text"
+              placeholder="Keyword here"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+            />
           </div>
-        ))}
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+            >
+              Adventure type:
+            </label>
+            <select
+              className="inp-select"
+              value={adventureType}
+              onChange={(e) => setAdventureType(e.target.value)}
+            >
+              <option className="inp-color" value="Categories">
+                Categories
+              </option>
+              {data.map((d2) => (
+                <option key={d2.id} value={d2.country}>
+                  {d2.country}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+            >
+              Min price
+            </label>
+            <select
+              className="inp-price"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
+            >
+              <option value="">Any</option>
+              {data.map((d2) => (
+                <option key={d2.id} value={d2.price}>
+                  {d2.price}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+            >
+              Max price
+            </label>
+            <select
+              className="inp-price"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+            >
+              <option value="">Any</option>
+              {data.map((d2) => (
+                <option key={d2.id} value={d2.price}>
+                  {d2.price}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button className="btn" onClick={handleFilter}>
+            Find
+          </button>
+        </div>
       </div>
 
       <div className="sect-3-2">
@@ -110,25 +172,20 @@ const Home = () => {
       </div>
       {/* data */}
       <div className="images">
-        {data.map((d) => {
-          if (d.id > 4 && d.id < 10) {
-            return (
-              <div className="image-data-1" key={d.id}>
-                <div className="image-1">
-                  <img className="image-data" src={d.img} alt="" />
-                </div>
-                <div className="text-1">
-                  <p className="p-dollar">From {d.price}$</p>
-                  <div style={{display : "flex" , gap : 5}}>
-                  <p className="p-country">{d.country},</p>
-                  <p className="p-country">{d.capital}</p>
-                  </div>
-                </div>
+        {filteredData.map((d) => (
+          <div className="image-data-1" key={d.id}>
+            <div className="image-1">
+              <img className="image-data" src={d.img} alt="" />
+            </div>
+            <div className="text-1">
+              <p className="p-dollar">From {d.price}$</p>
+              <div style={{ display: "flex", gap: 10 }}>
+                <p className="p-country">{d.country},</p>
+                <p className="p-country">{d.capital}</p>
               </div>
-            );
-          }
-          return null;
-        })}
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="sect-4">
@@ -177,7 +234,6 @@ const Home = () => {
           <p className="video-p">A day on the island</p>
           <p className="video-p-1">A trip organized by Destino's team</p>
           <CiPlay1
-            
             style={{
               color: "white",
               fontSize: 40,

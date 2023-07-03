@@ -166,18 +166,16 @@
   }
 }
 .offers-display {
-  // background-color: white;
   display: flex;
-  align-items: center;
-  text-align: center;
   justify-content: space-around;
   .select-option {
-    padding-top: 70px;
+    padding-top: 30px;
+    padding-right: 400px;
     .select {
       display: inline-block;
       position: relative;
       width: 132px;
-      height: 36px;
+      height: 38px;
       line-height: 32px;
       cursor: pointer;
       border: solid 2px #dbdbdb;

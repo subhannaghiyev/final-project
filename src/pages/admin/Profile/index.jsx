@@ -28,7 +28,7 @@ const Profile = () => {
             <div className="profile-images">
               <img
                 className="profile-img"
-                src="https://t3.ftcdn.net/jpg/03/04/76/60/360_F_304766094_oGfiNaNzXOXli1xFLLeqYgZjBABsUB29.jpg"
+                src="https://colorlib.com/wp/wp-content/uploads/sites/2/best-free-bootstrap-admin-dashboard-templates.jpg"
                 alt=""
               />
             </div>

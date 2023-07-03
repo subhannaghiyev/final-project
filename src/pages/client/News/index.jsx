@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./index.scss";
 const News = () => {
   const [data , setData] = useState([])
-
+  const navigate = useNavigate();
   const getData = async () =>{
     const res = await axios.get("http://localhost:4040/news")
     setData(res.data);
@@ -88,6 +89,7 @@ const News = () => {
           <div className="images-news" key={d.id}>
           <div className="news-images">
             <img
+            onClick={()=> navigate(`${d.id}`)}
               className="img-news"
               src={d.img}
               alt=""

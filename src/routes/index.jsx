@@ -23,6 +23,7 @@ import Wishlist from "../pages/client/Wishlist";
 import Payment from "../pages/client/Payment";
 import LogoAdmin from "../pages/admin/LogoAdmin";
 import User from "../pages/client/User";
+import DetailPage from "../pages/client/DetailPage";
 
 export const ROUTER = [
   {
@@ -68,6 +69,10 @@ export const ROUTER = [
       {
         path: "/user",
         element: <User />,
+      },
+      {
+        path: "/news/:id",
+        element: <DetailPage/>,
       },
       {
         path: "/payment",

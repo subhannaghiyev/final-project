@@ -191,6 +191,7 @@ const Home = () => {
     <>
   <div className="table-us">
   <Table
+  className="table-user-2"
         columns={columns}
         dataSource={data}
         pagination={pagination}

@@ -11,12 +11,12 @@ const User = () => {
   const userPassword = localStorage.getItem("userPassword");
 
   const logoutData = () => {
-    const userFirstName = localStorage.removeItem("userFirstName");
-    const userLastName = localStorage.removeItem("userLastName");
-    const userEmail = localStorage.removeItem("userEmail");
-    const userUsername = localStorage.removeItem("userUsername");
-    const userAge = localStorage.removeItem("userAge");
-    const userPassword = localStorage.removeItem("userPassword");
+    localStorage.removeItem("userFirstName");
+    localStorage.removeItem("userLastName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userUsername");
+    localStorage.removeItem("userAge");
+    localStorage.removeItem("userPassword");
     navigate("/login")
   };
   const goBack = () => {

@@ -6,24 +6,49 @@ import axios from "axios";
 import { AiTwotoneHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { addToFav } from "../../../redux/slice/FavSlice";
-import { useDispatch } from 'react-redux';
-const Offers = ({handleWishlistClick}) => {
-  const navigate = useNavigate()
-  const [data , setData] = useState([])
-  const [count , setCount] = useState(0)
-  const dispatch = useDispatch()
-  const getData = async () =>{
-    const res = await axios.get("http://localhost:4040/offers")
+import { useDispatch } from "react-redux";
+const Offers = ({ handleWishlistClick }) => {
+  const navigate = useNavigate();
+  const [data, setData] = useState([]);
+  const [count, setCount] = useState(0);
+  const [filteredData, setFilteredData] = useState(data);
+  const dispatch = useDispatch();
+  const getData = async () => {
+    const res = await axios.get("http://localhost:4040/offers");
     setData(res.data);
-  }
-  useEffect(()=>{
-    getData()
-  },[])
-  const handleChange = () =>{
-    setCount(count + 1)
-  console.log(count);
-  }
- 
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  const handleChange = () => {
+    setCount(count + 1);
+    console.log(count);
+  };
+  const [filterBy, setFilterBy] = useState("filter");
+  const [filterValue, setFilterValue] = useState("");
+
+  const handleFilterByChange = (event) => {
+    setFilterBy(event.target.value);
+  };
+
+  const handleFilterValueChange = (event) => {
+    setFilterValue(event.target.value);
+  };
+
+  const handleFilter = () => {
+    let filteredData = data;
+  
+    if (filterBy === "price") {
+      filteredData = data.filter((d) => d.price >= parseInt(filterValue));
+    } else if (filterBy === "name") {
+      filteredData = data.filter(
+        (d) => d.name && d.name.toLowerCase().includes(filterValue.toLowerCase())
+      );
+    }
+  
+    setFilteredData(filteredData);
+  };
+  
 
   return (
     <>
@@ -40,13 +65,21 @@ const Offers = ({handleWishlistClick}) => {
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start",fontFamily:"chillax-regular"}}>Destination:</label>
-              <input className="inp" type="text" placeholder="Keyword here"/>
+              <label
+                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+              >
+                Destination:
+              </label>
+              <input className="inp" type="text" placeholder="Keyword here" />
             </div>
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start",fontFamily:"chillax-regular"}}>Adventure type:</label>
+              <label
+                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+              >
+                Adventure type:
+              </label>
               <select className="inp-select">
                 <option className="inp-color" value="Categores">
                   Categories
@@ -59,7 +92,11 @@ const Offers = ({handleWishlistClick}) => {
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start",fontFamily:"chillax-regular"}}>Min price</label>
+              <label
+                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+              >
+                Min price
+              </label>
               <select className="inp-price">
                 <option value=""></option>
                 <option value="option1">price</option>
@@ -69,7 +106,11 @@ const Offers = ({handleWishlistClick}) => {
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start",fontFamily:"chillax-regular"}}>Max price</label>
+              <label
+                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+              >
+                Max price
+              </label>
               <select className="inp-price">
                 <option value=""></option>
                 <option value="option1">price</option>
@@ -88,18 +129,24 @@ const Offers = ({handleWishlistClick}) => {
 
       <div className="offers-display">
         <div className="select-option">
-          <select className="select" name="Filter By" id="Filter By">
+          <select className="select" name="FilterBy" id="FilterBy" value={filterBy}
+          onChange={handleFilterByChange}>
             <option value="filter">Filter by</option>
             <option value="show">Show All</option>
             <option value="price">Price</option>
             <option value="name">Name</option>
           </select>
-          <select className="select" name="Filter By" id="Filter By">
+          <select className="select" name="FilterValue" id="FilterValue">
             <option value="filter">Stars</option>
-            <option value="show">Show All</option>
-            <option value="price">Price</option>
-            <option value="name">Name</option>
+            <option value="price">1</option>
+            <option value="name">2</option>
+            <option value="name">3</option>
+            <option value="name">4</option>
+            <option value="name">5</option>
           </select>
+          <button className="btn" onClick={handleFilter}>
+            Filter
+          </button>
         </div>
         <div className="offers-icons">
           <p className="pp">Airplane X</p>
@@ -111,36 +158,32 @@ const Offers = ({handleWishlistClick}) => {
       </div>
 
       <div className="sect-offers-column">
-        {data && data.map((d)=>(
+        {filteredData.map((d) => (
           <div className="sect-offers" key={d.id}>
-          <div className="images-offers">
-            <img
-              className="img"
-              src={d.img}
-              alt=""
-            />
-          <div className="icons-data">
-            <AiTwotoneHeart className="heart-icon"
-            onClick={()=>dispatch(addToFav(d))}/>
-          </div>
-          </div>
-          <div className="offers-column">
-            <p className="dollar">From ${d.price}</p>
-            <div style={{display : "flex" ,gap : 10}}>
-            <p className="country">{d.country},</p>
-            <p className="country">{d.capital}</p>
+            <div className="images-offers">
+              <img className="img" src={d.img} alt="" />
+              <div className="icons-data">
+                <AiTwotoneHeart
+                  className="heart-icon"
+                  onClick={() => dispatch(addToFav(d))}
+                />
+              </div>
             </div>
-            <p className="count">{d.info}</p>
-            <div className="stars">
-              <AiFillStar className="icon-star"/>
-              {d.count}
+            <div className="offers-column">
+              <p className="dollar">From ${d.price}</p>
+              <div style={{ display: "flex", gap: 10 }}>
+                <p className="country">{d.country},</p>
+                <p className="country">{d.capital}</p>
+              </div>
+              <p className="count">{d.info}</p>
+              <div className="stars">
+                <AiFillStar className="icon-star" />
+                {d.count}
+              </div>
+              <p className="offers-text">{d.description}</p>
+              <button className="btn-offers">Read More</button>
             </div>
-            <p className="offers-text">
-              {d.description}
-            </p>
-            <button className="btn-offers">Read More</button>
           </div>
-        </div>
         ))}
       </div>
 
@@ -150,7 +193,13 @@ const Offers = ({handleWishlistClick}) => {
             <p className="p-last">Subscribe to our Newsletter</p>
           </div>
           <div className="last-section-input">
-            <input className="last-section-inp" type="text" name="" id="" placeholder="Your E-mail Address" />
+            <input
+              className="last-section-inp"
+              type="text"
+              name=""
+              id=""
+              placeholder="Your E-mail Address"
+            />
             <button className="last-btn">Subscribe</button>
           </div>
         </div>

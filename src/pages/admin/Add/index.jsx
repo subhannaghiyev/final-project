@@ -41,6 +41,7 @@ const Add = () => {
 
       if (formValues) {
         try {
+          const selectedOption = "http://localhost:4040/travels"; // Update the selectedOption URL
           await axios.post(selectedOption, {
             img: formValues.img,
             price: formValues.price,
@@ -178,7 +179,7 @@ const Add = () => {
           value={selectedOption}
           onChange={handleSelectChange}
         >
-          <option value="http://localhost:4040/travels">Home</option>
+          <option value="http://localhost:4040/travels">Travels</option>
           <option value="http://localhost:4040/sliders">Sliders</option>
           <option value="http://localhost:4040/news">News</option>
           <option value="http://localhost:4040/offers">Offers</option>
