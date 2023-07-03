@@ -144,9 +144,6 @@ const Offers = ({ handleWishlistClick }) => {
             <option value="name">4</option>
             <option value="name">5</option>
           </select>
-          <button className="btn" onClick={handleFilter}>
-            Filter
-          </button>
         </div>
         <div className="offers-icons">
           <p className="pp">Airplane X</p>
@@ -158,7 +155,7 @@ const Offers = ({ handleWishlistClick }) => {
       </div>
 
       <div className="sect-offers-column">
-        {filteredData.map((d) => (
+        {data.map((d) => (
           <div className="sect-offers" key={d.id}>
             <div className="images-offers">
               <img className="img" src={d.img} alt="" />

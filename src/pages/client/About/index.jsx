@@ -3,11 +3,17 @@ import "./index.scss";
 import { GiTowerBridge } from "react-icons/gi";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { FaSuitcaseRolling } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 // import CountUp from "react-countup"
 // import ScrollTrigger from "react-scroll-trigger"
 const About = () => {
   return (
     <>
+     <Helmet>
+        <meta charSet="utf-8" />
+        <title>About</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="background-image">
         <div className="text-about">
           <p className="p-about">About Us</p>

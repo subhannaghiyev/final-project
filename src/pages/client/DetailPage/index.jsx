@@ -40,9 +40,9 @@ const Detailpage = () => {
               />
             }
           >
-            <div style={{ width: 760, backgroundColor: "white", height: 80 }}>
+            <div style={{ width: "780px", backgroundColor: "white", height: 80}}>
               <Meta
-                style={{ width: "100%", textAlign: "justify" , fontFamily : "chillax-regular" }}
+                style={{ width: "780px", textAlign: "justify" , fontFamily : "chillax-regular"}}
                 description={data.description}
               />
             </div>

@@ -7,6 +7,7 @@ import { CiPlay1 } from "react-icons/ci";
 import "./styles.css";
 import { Pagination } from "swiper";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 const Home = () => {
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
@@ -29,35 +30,35 @@ const Home = () => {
     setData2(res.data);
     console.log(res.data);
   };
-  const handleFilter = () => {
-    console.log("Data:", data); 
-    // Apply your filtering logic here based on the selected values
-    const filteredData = data.filter((d) => {
-      // Filter by destination (case-insensitive)
-      const destinationMatch = d.country
-        .toLowerCase()
-        .includes(destination.toLowerCase());
-      console.log("Destination Match:", destinationMatch);
+  // const handleFilter = () => {
+  //   console.log("Data:", data);
+  //   // Apply your filtering logic here based on the selected values
+  //   const filteredData = data.filter((d) => {
+  //     // Filter by destination (case-insensitive)
+  //     const destinationMatch = d.country
+  //       .toLowerCase()
+  //       .includes(destination.toLowerCase());
+  //     console.log("Destination Match:", destinationMatch);
 
-      // Filter by adventure type
-      const adventureTypeMatch = d.country === adventureType;
-      console.log("Adventure Type Match:", adventureTypeMatch);
+  //     // Filter by adventure type
+  //     const adventureTypeMatch = d.country === adventureType;
+  //     console.log("Adventure Type Match:", adventureTypeMatch);
 
-      // Filter by price range
-      const minPriceMatch = minPrice === "" || d.price >= parseInt(minPrice);
-      console.log("Min Price Match:", minPriceMatch);
-      const maxPriceMatch = maxPrice === "" || d.price <= parseInt(maxPrice);
-      console.log("Max Price Match:", maxPriceMatch);
+  //     // Filter by price range
+  //     const minPriceMatch = minPrice === "" || d.price >= parseInt(minPrice);
+  //     console.log("Min Price Match:", minPriceMatch);
+  //     const maxPriceMatch = maxPrice === "" || d.price <= parseInt(maxPrice);
+  //     console.log("Max Price Match:", maxPriceMatch);
 
-      return (
-        destinationMatch || adventureTypeMatch || minPriceMatch || maxPriceMatch
-      );
-    });
+  //     return (
+  //       destinationMatch || adventureTypeMatch || minPriceMatch || maxPriceMatch
+  //     );
+  //   });
 
-    console.log("Filtered Data:", filteredData);
+  //   console.log("Filtered Data:", filteredData);
 
-    setFilteredData(filteredData);
-  };
+  //   setFilteredData(filteredData);
+  // };
 
   useEffect(() => {
     getData();
@@ -65,6 +66,11 @@ const Home = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="div">
         <div className="discover">
           <p className="text-p">Discover</p>
@@ -74,7 +80,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="sect-2">
+      <div className="sect-2-5">
         <div className="text-h3">
           <h3 className="h3">Find the Adventure of a lifetime</h3>
         </div>
@@ -91,8 +97,8 @@ const Home = () => {
               className="inp"
               type="text"
               placeholder="Keyword here"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
+              // value={destination}
+              // onChange={(e) => setDestination(e.target.value)}
             />
           </div>
           <div
@@ -105,8 +111,8 @@ const Home = () => {
             </label>
             <select
               className="inp-select"
-              value={adventureType}
-              onChange={(e) => setAdventureType(e.target.value)}
+              // value={adventureType}
+              // onChange={(e) => setAdventureType(e.target.value)}
             >
               <option className="inp-color" value="Categories">
                 Categories
@@ -128,8 +134,8 @@ const Home = () => {
             </label>
             <select
               className="inp-price"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
+              // value={minPrice}
+              // onChange={(e) => setMinPrice(e.target.value)}
             >
               <option value="">Any</option>
               {data.map((d2) => (
@@ -160,9 +166,7 @@ const Home = () => {
               ))}
             </select>
           </div>
-          <button className="btn" onClick={handleFilter}>
-            Find
-          </button>
+          <button className="btn">Find</button>
         </div>
       </div>
 
@@ -172,20 +176,25 @@ const Home = () => {
       </div>
       {/* data */}
       <div className="images">
-        {filteredData.map((d) => (
-          <div className="image-data-1" key={d.id}>
-            <div className="image-1">
-              <img className="image-data" src={d.img} alt="" />
-            </div>
-            <div className="text-1">
-              <p className="p-dollar">From {d.price}$</p>
-              <div style={{ display: "flex", gap: 10 }}>
-                <p className="p-country">{d.country},</p>
-                <p className="p-country">{d.capital}</p>
+        {data.map((d) => {
+          if (d.id > 4 && d.id < 10) {
+            return (
+              <div className="image-data-1" key={d.id}>
+                <div className="image-1">
+                  <img className="image-data" src={d.img} alt="" />
+                </div>
+                <div className="text-1">
+                  <p className="p-dollar">From {d.price}$</p>
+                  <div style={{ display: "flex", gap: 10 }}>
+                    <p className="p-country">{d.country},</p>
+                    <p className="p-country">{d.capital}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            );
+          }
+          return null;
+        })}
       </div>
 
       <div className="sect-4">

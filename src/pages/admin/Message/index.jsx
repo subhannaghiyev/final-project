@@ -90,7 +90,7 @@ const Message = () => {
             height: 40,
             fontFamily: "chillax-regular",
           }}
-          onClick={showDeleteConfirm}
+          onClick={(event) => showDeleteConfirm(event, record)}
         >
           Delete
         </Button>
@@ -122,8 +122,7 @@ const Message = () => {
   const handleTableChange = (pagination, filters, sorter, extra) => {
     setPagination(pagination);
   };
-  const handleDelete = async (record) => {
-    const { id } = record;
+  const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4040/admin/delete/${id}`);
       setData((prevData) => prevData.filter((item) => item.id !== id));
@@ -133,8 +132,9 @@ const Message = () => {
   };
   
 
-  const showDeleteConfirm = (event, record) => {
+  const showDeleteConfirm = (event,record) => {
   event.stopPropagation();
+  const { id } = record;
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -145,7 +145,8 @@ const Message = () => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      handleDelete(record);
+      console.log(record);
+      handleDelete(id);
       Swal.fire("Deleted!", "Your file has been deleted.", "success");
     }
   });
@@ -160,16 +161,8 @@ const Message = () => {
         pagination={pagination}
         onChange={handleTableChange}
         onRow={(record) => ({
-          onClick: (event) => {
-            // if (event.target.tagName === "Button") {
-            //   navigate("/admin/message")
-            //   event.isPropagationStopped()
+          onClick: () => {
               navigate(`${record.id}`);
-            // }
-            // else if ( event.target.tagName !== "img" || event.target.tagName !== "div"){
-            //     event.stopPropagation()
-            //     navigate(`${record.id}`);
-            // }
           },
         })}
       />

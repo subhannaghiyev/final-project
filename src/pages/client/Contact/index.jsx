@@ -5,6 +5,7 @@ import { FaPinterest, FaFacebookF } from "react-icons/fa";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -13,8 +14,6 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Verileri admin/message bölümüne gönder
     try {
       await axios.post('http://localhost:4040/admin', {
         name,
@@ -22,15 +21,18 @@ const Contact = () => {
         subject,
         message
       });
-      // Başarılı gönderim mesajı veya yönlendirme yapılabilir
       toast.success("Message Sent Successfully!");
     } catch (error) {
       console.error(error);
-      // Hata mesajı gösterilebilir
     }
   };
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Contact</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="background-image-2-contact">
         <div className="text-about">
           <p className="p-about">Contact</p>

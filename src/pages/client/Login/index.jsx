@@ -7,6 +7,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -83,6 +84,11 @@ const Login = () => {
 
   return (
     <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="login-background">
         <div className="login-display">
           <div className="images-login">

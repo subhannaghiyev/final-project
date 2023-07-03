@@ -64,12 +64,6 @@ const AdminNavbar = () => {
             </div>
             <div className="image-display-admin">
               <img className="disp-img" src="" alt="" />
-              <Link to="/admin/about">
-                <p className="p-admin">About</p>
-              </Link>
-            </div>
-            <div className="image-display-admin">
-              <img className="disp-img" src="" alt="" />
               <Link to="/admin/news">
                 <p className="p-admin">News</p>
               </Link>
