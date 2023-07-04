@@ -46,7 +46,7 @@ const Header = () => {
             <Link to="/contact">
               <li style={{ fontSize: "16px" }}>Contact</li>
             </Link>
-            {!user.isAdmin ? (
+            {user.isAdmin ===false? (
             <Link to="/user">
             <div style={{display : "flex",alignItems:"center"}}>
               <div className="images-logo-admin">

@@ -15,10 +15,12 @@ const Home = () => {
   const [adventureType, setAdventureType] = useState("Categories");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+  const [value, setValue] = useState("");
+  const [sort, setSort] = useState(false)
   const [filteredData, setFilteredData] = useState(
     data.filter((d) => d.id > 4 && d.id < 10)
   );
-
+  const [country, setCountry] = useState("");
   const getData = async () => {
     const res = await axios.get("http://localhost:4040/travels");
     setData(res.data);
@@ -30,6 +32,29 @@ const Home = () => {
     setData2(res.data);
     console.log(res.data);
   };
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const handleChangeCountry = (value) => {
+    setCountry(value);
+  };
+const Sorting = ()=>{
+  let arr = []
+  if (sort===false) {
+    setSort(true)
+    arr = [...data].sort((a,b)=>{
+      return a.price-b.price;
+    });
+  }else {
+    setSort(false)
+    arr = [...data].sort((a,b)=>{
+      return b.price-a.price;
+    });
+  }
+  setData(arr)
+}
   // const handleFilter = () => {
   //   console.log("Data:", data);
   //   // Apply your filtering logic here based on the selected values
@@ -86,87 +111,25 @@ const Home = () => {
         </div>
         <div className="input">
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+            style={{ display: "flex",alignItems:'center', gap: "10px" }}
           >
+            <div style={{ display: "flex",flexDirection:'column',gap:10}}>
             <label
               style={{ textAlign: "start", fontFamily: "chillax-regular" }}
             >
               Destination:
             </label>
             <input
+              onChange={handleChange}
               className="inp"
               type="text"
               placeholder="Keyword here"
               // value={destination}
               // onChange={(e) => setDestination(e.target.value)}
             />
+            </div>
+            <button className="btn" onClick={Sorting}>Find</button>
           </div>
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-          >
-            <label
-              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-            >
-              Adventure type:
-            </label>
-            <select
-              className="inp-select"
-              // value={adventureType}
-              // onChange={(e) => setAdventureType(e.target.value)}
-            >
-              <option className="inp-color" value="Categories">
-                Categories
-              </option>
-              {data.map((d2) => (
-                <option key={d2.id} value={d2.country}>
-                  {d2.country}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-          >
-            <label
-              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-            >
-              Min price
-            </label>
-            <select
-              className="inp-price"
-              // value={minPrice}
-              // onChange={(e) => setMinPrice(e.target.value)}
-            >
-              <option value="">Any</option>
-              {data.map((d2) => (
-                <option key={d2.id} value={d2.price}>
-                  {d2.price}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-          >
-            <label
-              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-            >
-              Max price
-            </label>
-            <select
-              className="inp-price"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            >
-              <option value="">Any</option>
-              {data.map((d2) => (
-                <option key={d2.id} value={d2.price}>
-                  {d2.price}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button className="btn">Find</button>
         </div>
       </div>
 
@@ -176,25 +139,31 @@ const Home = () => {
       </div>
       {/* data */}
       <div className="images">
-        {data.map((d) => {
-          if (d.id > 4 && d.id < 10) {
-            return (
-              <div className="image-data-1" key={d.id}>
-                <div className="image-1">
-                  <img className="image-data" src={d.img} alt="" />
-                </div>
-                <div className="text-1">
-                  <p className="p-dollar">From {d.price}$</p>
-                  <div style={{ display: "flex", gap: 10 }}>
-                    <p className="p-country">{d.country},</p>
-                    <p className="p-country">{d.capital}</p>
+        {data
+          .filter(
+            (item) =>
+              item.country.toLowerCase().includes(value.toLowerCase()) &&
+              (country === "" || item.country === country)
+          )
+          .map((d) => {
+            if (d.id > 4 && d.id < 10) {
+              return (
+                <div className="image-data-1" key={d.id}>
+                  <div className="image-1">
+                    <img className="image-data" src={d.img} alt="" />
+                  </div>
+                  <div className="text-1">
+                    <p className="p-dollar">From {d.price}$</p>
+                    <div style={{ display: "flex", gap: 10 }}>
+                      <p className="p-country">{d.country},</p>
+                      <p className="p-country">{d.capital}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          }
-          return null;
-        })}
+              );
+            }
+            return null;
+          })}
       </div>
 
       <div className="sect-4">

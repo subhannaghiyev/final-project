@@ -79,7 +79,7 @@
         background: transparent;
         font-style: italic;
       }
-      .inp-select{
+      .inp-select {
         width: 344px;
         height: 60px;
         border: none;
@@ -93,11 +93,11 @@
         border: solid 2px rgba(255, 255, 255, 0.5);
         background: transparent;
         font-style: italic;
-      .inp-color {
-        border: solid 2px rgba(255, 255, 255, 0.5);
-        background: transparent;
+        .inp-color {
+          border: solid 2px rgba(255, 255, 255, 0.5);
+          background: transparent;
+        }
       }
-    }
       .inp-price {
         width: 100px;
         height: 60px;
@@ -222,37 +222,38 @@
       .img {
         width: 300px;
         height: 400px;
+        border-radius: 10px;
       }
-    .icons-data{
-      display: none;
-      width: 100%;
-      height: 70px;
-      background-color: rgba(255, 255, 255, 0.621);
-      position: absolute;
-      bottom: 3px;
-      font-size: 40px;
-      .heart-icon{
-        color: white;
-         margin-left: 240px;
-         margin-top: 15px;
-      }
-      .heart-icon:hover{
-        transition: all 0.5s ease-in-out;
+      .icons-data {
+        display: none;
+        width: 100%;
+        height: 70px;
+        background-color: rgba(255, 255, 255, 0.621);
+        position: absolute;
+        bottom: 3px;
+        font-size: 40px;
+        .heart-icon {
+          color: white;
+          margin-left: 240px;
+          margin-top: 15px;
+        }
+        .heart-icon:hover {
+          transition: all 0.5s ease-in-out;
 
-        color: red;
-        // background-color: red;
-        border: none;
-        //  font-size: 43px;
-         transform: scale(1.1);
+          color: red;
+          // background-color: red;
+          border: none;
+          //  font-size: 43px;
+          transform: scale(1.1);
+        }
       }
     }
-  }
-  .images-offers:hover{
-    cursor: pointer;
-    .icons-data{
-      display: block !important;
+    .images-offers:hover {
+      cursor: pointer;
+      .icons-data {
+        display: block !important;
+      }
     }
-  }
     .offers-column {
       display: flex;
       flex-direction: column;

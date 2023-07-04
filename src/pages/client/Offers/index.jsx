@@ -12,7 +12,7 @@ const Offers = ({ handleWishlistClick }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
-  const [filteredData, setFilteredData] = useState(data);
+  const [state, setState] = useState('');
   const dispatch = useDispatch();
   const getData = async () => {
     const res = await axios.get("http://localhost:4040/offers");
@@ -25,35 +25,17 @@ const Offers = ({ handleWishlistClick }) => {
     setCount(count + 1);
     console.log(count);
   };
-  const [filterBy, setFilterBy] = useState("filter");
-  const [filterValue, setFilterValue] = useState("");
+  const [filterBy, setFilterBy] = useState("all");
+  const [filterValue, setFilterValue] = useState("all");
+  console.log(filterBy);
 
   const handleFilterByChange = (event) => {
     setFilterBy(event.target.value);
   };
 
-  const handleFilterValueChange = (event) => {
-    setFilterValue(event.target.value);
-  };
-
-  const handleFilter = () => {
-    let filteredData = data;
-  
-    if (filterBy === "price") {
-      filteredData = data.filter((d) => d.price >= parseInt(filterValue));
-    } else if (filterBy === "name") {
-      filteredData = data.filter(
-        (d) => d.name && d.name.toLowerCase().includes(filterValue.toLowerCase())
-      );
-    }
-  
-    setFilteredData(filteredData);
-  };
-  
-
   return (
     <>
-    <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>Offers</title>
         <link rel="canonical" href="http://mysite.com/example" />
@@ -135,20 +117,29 @@ const Offers = ({ handleWishlistClick }) => {
 
       <div className="offers-display">
         <div className="select-option">
-          <select className="select" name="FilterBy" id="FilterBy" value={filterBy}
-          onChange={handleFilterByChange}>
-            <option value="filter">Filter by</option>
-            <option value="show">Show All</option>
+          <select
+            className="select"
+            name="FilterBy"
+            id="FilterBy"
+            value={filterBy}
+            onChange={(e) => setFilterBy(e.target.value)}
+          >
+            <option value="all">Show All</option>
             <option value="price">Price</option>
             <option value="name">Name</option>
           </select>
-          <select className="select" name="FilterValue" id="FilterValue">
-            <option value="filter">Stars</option>
-            <option value="price">1</option>
-            <option value="name">2</option>
-            <option value="name">3</option>
-            <option value="name">4</option>
-            <option value="name">5</option>
+          <select
+            className="select"
+            name="FilterValue"
+            id="FilterValue"
+            onChange={(e) => setFilterValue(e.target.value)}
+          >
+            <option value="all">Stars</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
         </div>
         <div className="offers-icons">
@@ -161,33 +152,53 @@ const Offers = ({ handleWishlistClick }) => {
       </div>
 
       <div className="sect-offers-column">
-        {data.map((d) => (
-          <div className="sect-offers" key={d.id}>
-            <div className="images-offers">
-              <img className="img" src={d.img} alt="" />
-              <div className="icons-data">
-                <AiTwotoneHeart
-                  className="heart-icon"
-                  onClick={() => dispatch(addToFav(d))}
-                />
+        {data
+          .filter((item) => {
+            if(filterValue === 'all'){
+              return item
+            }else {
+              return item.count == filterValue
+            }
+          })
+          .sort((aItem, bItem) => {
+            if(filterBy === 'price'){
+              return aItem.price - bItem.price
+            }else if(filterBy === 'name'){
+              return aItem.country.localeCompare(bItem.country, 'en')
+            }
+          })
+          .map((d) => {
+            const stars = [];
+            for (let i = 0; i < d.count; i++) {
+              stars.push(<AiFillStar key={i} className="icon-star" />);
+            }
+            return (
+              <div className="sect-offers" key={d.id}>
+                <div className="images-offers">
+                  <img className="img" src={d.img} alt="" />
+                  <div className="icons-data">
+                    <AiTwotoneHeart
+                      className="heart-icon"
+                      onClick={() => dispatch(addToFav(d))}
+                    />
+                  </div>
+                </div>
+                <div className="offers-column">
+                  <p className="dollar">From ${d.price}</p>
+                  <div style={{ display: "flex", gap: 10 }}>
+                    <p className="country">{d.country},</p>
+                    <p className="country">{d.capital}</p>
+                  </div>
+                  <p className="count">{d.info}</p>
+                  <div className="stars">
+                    {stars}
+                  </div>
+                  <p className="offers-text">{d.description}</p>
+                  <button className="btn-offers">Read More</button>
+                </div>
               </div>
-            </div>
-            <div className="offers-column">
-              <p className="dollar">From ${d.price}</p>
-              <div style={{ display: "flex", gap: 10 }}>
-                <p className="country">{d.country},</p>
-                <p className="country">{d.capital}</p>
-              </div>
-              <p className="count">{d.info}</p>
-              <div className="stars">
-                <AiFillStar className="icon-star" />
-                {d.count}
-              </div>
-              <p className="offers-text">{d.description}</p>
-              <button className="btn-offers">Read More</button>
-            </div>
-          </div>
-        ))}
+            )
+          })}
       </div>
 
       <div className="about-background">
